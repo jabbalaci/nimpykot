@@ -5,7 +5,7 @@ Porting some Python / Kotlin features to Nim.
 
 Usage: just copy the file `pykot.nim` to your project folder and import it.
 
-Examples: see the `examplesi/` folder.
+Examples: see the `examples/` folder.
 
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
 
