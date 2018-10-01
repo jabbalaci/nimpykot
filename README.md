@@ -1,11 +1,11 @@
-NimExtensions
-=============
+NimPyKot
+========
 
 Porting some Python / Kotlin features to Nim.
 
-Usage: just copy the file `py.nim` to your project folder and import it.
+Usage: just copy the file `pykot.nim` to your project folder and import it.
 
-Examples: see the file `py_test.nim`.
+Examples: see the `examplesi/` folder.
 
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
 
@@ -17,7 +17,7 @@ Example: 1977 → 7791.
 
 ```nim
 import unicode
-import py
+import pykot
 
 proc reverse_number(n: int): int =
   n.toStr().reversed().toInt()
