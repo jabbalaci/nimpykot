@@ -1,0 +1,6 @@
+__pycache__
+examples/examples
+nimcache/
+src/py
+tests/py_test
+old/
