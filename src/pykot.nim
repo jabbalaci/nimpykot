@@ -120,7 +120,7 @@ iterator until*(a, b: int): int =
 # ###########
 
 template str*(a: untyped): string =
-  ## Convert something to a string.
+  ## Convert something to string.
   runnableExamples:
     doAssert str(42) == "42"
     doAssert str(3.14) == "3.14"
@@ -195,7 +195,7 @@ template toFloat*(s: string): float =
   parseFloat(s)
 
 template toFloat*(c: char): float =
-  ## Convert a digit, represented as a char, to a float.
+  ## Convert a digit, represented as a char, to float.
   runnableExamples:
     doAssert '0'.toFloat == 0.0
     doAssert '5'.toFloat == 5.0
