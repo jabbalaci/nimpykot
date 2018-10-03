@@ -84,7 +84,7 @@ iterator indices*[T](a: seq[T]): int =
   ##      res = toSeq(numbers.indices)
   ##    doAssert res == @[0, 1, 2, 3]
 
-  for i in 0 ..< a.len:
+  for i in 0 .. a.high:
     yield i
 
 iterator indices*(s: string): int =
@@ -96,7 +96,7 @@ iterator indices*(s: string): int =
       res = toSeq(lang.indices)
     doAssert res == @[0, 1, 2]
 
-  for i in 0 ..< s.len:
+  for i in 0 .. s.high:
     yield i
 
 iterator until*(a, b: int): int =
