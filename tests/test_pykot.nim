@@ -58,8 +58,8 @@ test "indices with sequences":
 
 test "indices with strings":
   let empty = newSeq[int]()
-  check toSeq("".indices()) == empty
-  check toSeq("nim".indices()) == @[0, 1, 2]
+  check toSeq("".indicesAscii()) == empty
+  check toSeq("nim".indicesAscii()) == @[0, 1, 2]
 
 test "lastIndex with sequences":
   let empty = newSeq[int]()

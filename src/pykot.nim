@@ -87,13 +87,13 @@ iterator indices*[T](a: seq[T]): int =
   for i in 0 .. a.high:
     yield i
 
-iterator indices*(s: string): int =
-  ## An iterator over the indices of a string.
+iterator indicesAscii*(s: string): int =
+  ## An iterator over the indices of an ASCII string.
   runnableExamples:
     import sequtils
     let
       lang = "Nim"
-      res = toSeq(lang.indices)
+      res = toSeq(lang.indicesAscii)
     doAssert res == @[0, 1, 2]
 
   for i in 0 .. s.high:
