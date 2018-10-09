@@ -23,6 +23,95 @@ proc input*(prompt: string = ""): string =
 # Funcs #
 # #######
 
+func toInt*(n: int): int =
+  ## Convert an int to int.
+  ##
+  ## It seems useless, but if you don't know the exact type of a variable
+  ## in a chain and it happens to be an int, it does no harm.
+  runnableExamples:
+    doAssert 2.toInt == 2
+    doAssert 123.toInt == 123
+
+  n
+
+func toInt*(s: string): int =
+  ## Convert a string to int.
+  runnableExamples:
+    doAssert "42".toInt == 42
+    doAssert "-576".toInt == -576
+
+  parseInt(s)
+
+
+func toInt*(digit: char): int =
+  ## Convert a digit, represented as a char, to int.
+  runnableExamples:
+    doAssert '0'.toInt == 0
+    doAssert '5'.toInt == 5
+
+  parseInt($digit)
+
+#
+func toIntPart*(f: float): int =
+  ## Convert a float to int and keep just the integer part.
+  ##
+  ## Keep just the integer part, do no rounding. Python's int(...) works like this.
+  ## However, `system.toInt(f: float): int` does rounding.
+  runnableExamples:
+    doAssert (3.2).toIntPart == 3
+    doAssert (3.8).toIntPart == 3
+    doAssert (-3.2).toIntPart == -3
+    doAssert (-3.8).toIntPart == -3
+  
+  int(f)
+
+func toFloat*(f: float): float =
+  ## Convert a float to float.
+  ##
+  ## It seems useless, but if you don't know the exact type of a variable
+  ## in a chain and it happens to be a float, it does no harm.
+  runnableExamples:
+    doAssert (3.14).toFloat == 3.14
+
+  f
+
+func toFloat*(s: string): float =
+  ## Convert a string to float.
+  runnableExamples:
+    doAssert "3.2".toFloat == 3.2
+
+  parseFloat(s)
+
+func toFloat*(c: char): float =
+  ## Convert a digit, represented as a char, to float.
+  runnableExamples:
+    doAssert '0'.toFloat == 0.0
+    doAssert '5'.toFloat == 5.0
+
+  parseFloat($c)
+
+# `system.toFloat(i: int): float` does exist
+
+func lastIndex*[T](a: seq[T]): int =
+  ## Return the index of the last element of a sequence.
+  runnableExamples:
+    let
+      a = @[4, 8, 3, 9]
+    doAssert a.lastIndex == 3
+
+  high(a)
+
+func lastIndexAscii*(s: string): int =
+  ## Return the index of the last character of a string.
+  ##
+  ## It works correctly only with an ASCII string.
+  runnableExamples:
+    let
+      s = "Alice"
+    doAssert s.lastIndexAscii == 4
+
+  high(s)
+
 func last*[T](a: seq[T]): T =
   ## Last element of a sequence.
   runnableExamples:
@@ -66,6 +155,15 @@ func prettyNum*(n: int, sep=','): string =
     doAssert prettyNum(1_234_567) == "1,234,567"
 
   insertSep($n, sep=sep)
+
+func `+`*(s, t: string): string =
+  ## Concatenates s and t into a string.
+  ##
+  ## Mimicking Python.
+  runnableExamples:
+    doAssert "py" + "thon" == "python"
+
+  s & t
 
 # ###########
 # Iterators #
@@ -134,95 +232,6 @@ template toStr*(a: untyped): string =
     doAssert (3.14).toStr() == "3.14"
 
   $a
-
-template toInt*(n: int): int =
-  ## Convert an int to int.
-  ##
-  ## It seems useless, but if you don't know the exact type of a variable
-  ## in a chain and it happens to be an int, it does no harm.
-  runnableExamples:
-    doAssert 2.toInt == 2
-    doAssert 123.toInt == 123
-
-  n
-
-template toInt*(s: string): int =
-  ## Convert a string to int.
-  runnableExamples:
-    doAssert "42".toInt == 42
-    doAssert "-576".toInt == -576
-
-  parseInt(s)
-
-
-template toInt*(digit: char): int =
-  ## Convert a digit, represented as a char, to int.
-  runnableExamples:
-    doAssert '0'.toInt == 0
-    doAssert '5'.toInt == 5
-
-  parseInt($digit)
-
-#
-template toIntPart*(f: float): int =
-  ## Convert a float to int and keep just the integer part.
-  ##
-  ## Keep just the integer part, do no rounding. Python's int(...) works like this.
-  ## However, `system.toInt(f: float): int` does rounding.
-  runnableExamples:
-    doAssert (3.2).toIntPart == 3
-    doAssert (3.8).toIntPart == 3
-    doAssert (-3.2).toIntPart == -3
-    doAssert (-3.8).toIntPart == -3
-  
-  int(f)
-
-template toFloat*(f: float): float =
-  ## Convert a float to float.
-  ##
-  ## It seems useless, but if you don't know the exact type of a variable
-  ## in a chain and it happens to be a float, it does no harm.
-  runnableExamples:
-    doAssert (3.14).toFloat == 3.14
-
-  f
-
-template toFloat*(s: string): float =
-  ## Convert a string to float.
-  runnableExamples:
-    doAssert "3.2".toFloat == 3.2
-
-  parseFloat(s)
-
-template toFloat*(c: char): float =
-  ## Convert a digit, represented as a char, to float.
-  runnableExamples:
-    doAssert '0'.toFloat == 0.0
-    doAssert '5'.toFloat == 5.0
-
-  parseFloat($c)
-
-# `system.toFloat(i: int): float` does exist
-
-template lastIndex*[T](a: seq[T]): int =
-  ## Return the index of the last element of a sequence.
-  runnableExamples:
-    let
-      a = @[4, 8, 3, 9]
-    doAssert a.lastIndex == 3
-
-  high(a)
-
-template lastIndexAscii*(s: string): int =
-  ## Return the index of the last character of a string.
-  ##
-  ## It works correctly only with an ASCII string.
-  runnableExamples:
-    let
-      s = "Alice"
-    doAssert s.lastIndexAscii == 4
-
-  high(s)
 
 template repeat*(times: static[Natural], body: untyped): untyped =
   ## Repeat a body N times.
