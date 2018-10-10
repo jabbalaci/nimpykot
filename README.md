@@ -5,6 +5,8 @@ Porting some Python / Kotlin features to Nim.
 
 Usage: just copy the file `pykot.nim` to your project folder and import it.
 
+The project is still at an early stage, thus it's not yet installable with nimble.
+
 Examples: see the `examples/` folder.
 
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
