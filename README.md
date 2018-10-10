@@ -3,11 +3,20 @@ NimPyKot
 
 Porting some Python / Kotlin features to Nim.
 
-Usage: just copy the file `src/pykot.nim` to your project folder and import it.
+Installation
+------------
 
-The project is still at an early stage, thus it's not yet installable with nimble.
+```bash
+$ nimble install pykot
+```
 
-Examples: see the `examples/` folder.
+Or, simply copy the file `src/pykot.nim` to your project folder and import it.
+
+Notes
+-----
+
+* examples: [tests/test_pykot.nim](tests/test_pykot.nim)
+* docs: [docs/pykot.html](docs/pykot.html)
 
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
 

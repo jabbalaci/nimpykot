@@ -125,7 +125,6 @@ def clean():
     """
     remove the compiled EXEs
     """
-    remove_file("examples/examples")
     remove_file("src/pykot")
     remove_file("tests/test_pykot")
 
