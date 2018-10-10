@@ -1,5 +1,6 @@
 import unittest
 import sequtils
+import strutils
 import unicode
 
 import pykot
@@ -151,3 +152,19 @@ suite "templates":
     repeat(-3):
       inc counter
     check counter == 0
+
+  test "none":
+    var text: string
+
+    text = "HELLO THERE"
+    check text.none(isLowerAscii) == true
+    text = "HELLo THERE"
+    check text.none(isLowerAscii) == false
+
+  test "noneIt":
+    var text: string
+
+    text = "HELLO THERE"
+    check text.noneIt(it.isLowerAscii) == true
+    text = "HELLo THERE"
+    check text.noneIt(it.isLowerAscii) == false

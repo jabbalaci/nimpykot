@@ -263,3 +263,21 @@ template repeat*(times: static[Natural], body: untyped): untyped =
 
   for _ in 0 ..< times:
     body
+
+template none*[T](s: openArray[T], pred: proc(x: T): bool {.closure.}): bool =
+  ## Iterates through a container and checks if no item fulfills the predicate.
+  runnableExamples:
+    let numbers = @[1, 4, 5, 8, 9, 7, 4]
+    assert none(numbers, proc (x: int): bool = x > 10) == true
+    assert none(numbers, proc (x: int): bool = x > 5) == false
+
+  not sequtils.any(s, pred)
+
+template noneIt*(s, pred: untyped): bool =
+  ## Iterates through a container and checks if no item fulfills the predicate.
+  runnableExamples:
+    let numbers = @[1, 4, 5, 8, 9, 7, 4]
+    assert noneIt(numbers, it > 10) == true
+    assert noneIt(numbers, it > 5) == false
+
+  not sequtils.anyIt(s, pred)
