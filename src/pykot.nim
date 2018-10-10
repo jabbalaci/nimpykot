@@ -165,6 +165,24 @@ func `+`*(s, t: string): string =
 
   s & t
 
+func reversedAscii*(s: string): string =
+  ## Reverse an ASCII string.
+  ##
+  ## It returns a reversed copy.
+  runnableExamples:
+    doAssert "hello".reversedAscii == "olleh"
+
+  result = s
+  
+  var
+    i = result.low
+    j = result.high
+
+  while i < j:
+    swap(result[i], result[j])
+    inc i
+    dec j
+
 # ###########
 # Iterators #
 # ###########

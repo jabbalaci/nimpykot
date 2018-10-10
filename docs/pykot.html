@@ -1277,6 +1277,8 @@ function main() {
     title="prettyNum(n: int; sep = &#x27;,&#x27;): string"><wbr />pretty<wbr />Num<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#+,string,string"
     title="`+`(s, t: string): string"><wbr />`+`<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#reversedAscii,string"
+    title="reversedAscii(s: string): string"><wbr />reversed<wbr />Ascii<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
 </li>
@@ -1457,6 +1459,15 @@ Last element of a sequence.
 <pre class="listing"><span class="Identifier">doAssert</span> <span class="StringLit">&quot;py&quot;</span> <span class="Operator">+</span> <span class="StringLit">&quot;thon&quot;</span> <span class="Operator">==</span> <span class="StringLit">&quot;python&quot;</span></pre>
 
 </dd>
+<dt id="reversedAscii"><a name="reversedAscii,string"></a><pre><span class="Keyword">func</span> <span class="Identifier">reversedAscii</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>Reverse an ASCII string.</p>
+<p>It returns a reversed copy.</p>
+
+<p><strong class="examples_text">Examples:</strong></p>
+<pre class="listing"><span class="Identifier">doAssert</span> <span class="StringLit">&quot;hello&quot;</span><span class="Other">.</span><span class="Identifier">reversedAscii</span> <span class="Operator">==</span> <span class="StringLit">&quot;olleh&quot;</span></pre>
+
+</dd>
 
 </dl></div>
 <div class="section" id="15">
@@ -1529,10 +1540,10 @@ Convert something to string.
 <p>I saw it first in Kotlin.</p>
 
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">224617</span> <span class="Other">=</span> <span class="DecNumber">0</span>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">224667</span> <span class="Other">=</span> <span class="DecNumber">0</span>
 <span class="Identifier">repeat</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">224617</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">224617</span> <span class="Operator">==</span>
+  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">224667</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">224667</span> <span class="Operator">==</span>
     <span class="DecNumber">5</span></pre>
 
 </dd>
@@ -1546,7 +1557,7 @@ Convert something to string.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-10-09 19:15:28 UTC</small>
+        <small>Made with Nim. Generated: 2018-10-10 12:13:05 UTC</small>
       </div>
     </div>
   </div>

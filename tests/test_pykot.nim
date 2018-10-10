@@ -72,6 +72,11 @@ suite "funcs":
     
   test "string concatenation with `+`":
     check "py" + "thon" == "python"
+
+  test "reverse an ASCII string":
+    check "".reversedAscii == ""
+    check "ab".reversedAscii == "ba"
+    check "abcde".reversedAscii == "edcba"
     
 
 # ################
