@@ -16,7 +16,7 @@ Notes
 -----
 
 * examples: [tests/test_pykot.nim](tests/test_pykot.nim)
-* docs: [docs/pykot.html](docs/pykot.html)
+* docs: [docs/pykot.html](https://htmlpreview.github.io/?https://github.com/jabbalaci/nimpykot/blob/master/docs/pykot.html)
 
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
 
