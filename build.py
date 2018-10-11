@@ -137,7 +137,6 @@ def commit_and_push():
     call_external_command(f"git commit -m '{text}'")
     enter()
     call_external_command("git push")
-    enter()
     call_external_command("git status")
 
 
