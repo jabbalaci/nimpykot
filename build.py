@@ -132,8 +132,11 @@ def commit_and_push():
     call_external_command("git add .")
     call_external_command("git status")
     enter()
+    print()
     text = input("Commit text: ").strip()
     call_external_command(f"git commit -m '{text}'")
+    enter()
+    call_external_command("git push")
     enter()
     call_external_command("git status")
 
