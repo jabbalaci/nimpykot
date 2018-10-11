@@ -56,10 +56,12 @@ def remove_directory(dname):
     print(f"└ end: remove {pretty(dname)}")
 
 
-def call_external_command(cmd):
-    print(f"┌ start: calling external command '{cmd}'")
+def call_external_command(cmd, verbose=True):
+    if verbose:
+        print(f"┌ start: calling external command '{cmd}'")
     os.system(cmd)
-    print(f"└ end: calling external command '{cmd}'")
+    if verbose:
+        print(f"└ end: calling external command '{cmd}'")
 
 
 def call_popen_with_env(cmd, env):
@@ -116,6 +118,26 @@ def rename_file(src, dest):
     print(f"└ end: rename {src} -> {dest}")
 
 
+def enter():
+    print()
+    try:
+        input("Press ENTER to continue...")
+    except KeyboardInterrupt:
+        exit(1)
+
+
+def commit_and_push():
+    call_external_command("git status")
+    enter()
+    call_external_command("git add .")
+    call_external_command("git status")
+    enter()
+    text = input("Commit text: ").strip()
+    call_external_command(f"git commit -m '{text}'")
+    enter()
+    call_external_command("git status")
+
+
 ###########
 ## Tasks ##
 ###########
@@ -149,3 +171,11 @@ def doc():
     call_external_command(cmd)
     remove_file("docs/pykot.html")
     rename_file("src/pykot.html", "docs/")
+
+
+@task()
+def push():
+    """
+    commit and push your changes to GitHub
+    """
+    commit_and_push()
