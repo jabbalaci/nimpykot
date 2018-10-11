@@ -12,6 +12,14 @@ $ nimble install pykot
 
 Or, simply copy the file `src/pykot.nim` to your project folder and import it.
 
+To install the latest development version, issue the following command:
+
+```bash
+$ nimble install "https://github.com/jabbalaci/nimpykot@#head"
+```
+
+With `nimble uninstall pykot` you can remove the package.
+
 Notes
 -----
 
