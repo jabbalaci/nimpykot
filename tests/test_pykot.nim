@@ -78,7 +78,12 @@ suite "funcs":
     check "".reversedAscii == ""
     check "ab".reversedAscii == "ba"
     check "abcde".reversedAscii == "edcba"
-    
+
+  test "rstrip":
+    check "  hello  ".rstrip() == "  hello"
+    check "  hello \n".rstrip({'\n'}) == "  hello "
+    check "  hello \n".rstrip("\n") == "  hello "
+    check "  hello \n".rstrip("\n ") == "  hello"
 
 # ################
 suite "iterators":
