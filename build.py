@@ -4,6 +4,15 @@
 pynt's build file
 https://github.com/rags/pynt
 
+pynt is a minimalistic build tool, which is
+* easy to learn / easy to use
+* build tasks are just Python funtions
+* automatically generates a command line interface
+
+Installation:
+
+$ sudo pip3 install pynt
+
 Usage:
 
 $ pynt
