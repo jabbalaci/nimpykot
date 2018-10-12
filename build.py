@@ -24,8 +24,12 @@ import shutil
 import sys
 from pathlib import Path
 from subprocess import PIPE, Popen
+import webbrowser
 
 from pynt import task
+
+BROWSER = "firefox"    # used for opening the doc
+
 
 def get_platform():
     text = sys.platform
@@ -182,6 +186,10 @@ def doc():
     call_external_command(cmd)
     remove_file("docs/pykot.html")
     rename_file("src/pykot.html", "docs/")
+    print()
+    inp = input("Open doc in web browser [y/N]? ").strip()
+    if inp == "y":
+        call_external_command(f"{BROWSER} docs/pykot.html")
 
 
 @task()
