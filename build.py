@@ -172,7 +172,8 @@ def tests():
     run tests
     """
     verbosity_level = 1    # 0, 1, 2, 3, default: 1
-    cmd = f"nim c -r --verbosity:{verbosity_level} tests/test_pykot.nim"
+    # cmd = f"nim c -r --verbosity:{verbosity_level} tests/test_pykot.nim"
+    cmd = "nimble test"
     call_external_command(cmd)
     clean()
 
