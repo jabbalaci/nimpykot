@@ -1,13 +1,14 @@
+import httpclient    # get_page() needs it
 import strutils
 import sequtils
 import unicode
-import rdstdin    # inputExtra() needs it
+import rdstdin       # inputExtra() needs it
+import os            # touch() needs it
+
 
 # #######
 # Procs #
 # #######
-
-# proc print*(x: varargs[typed, `$`]) {.magic: "Echo", tags: [WriteIOEffect], gcsafe, locks: 0, sideEffect.}
 
 proc input*(prompt: string = ""): string =
   ## Python's `input()` function, i.e. read a line from the stdin.
@@ -41,6 +42,44 @@ proc inputExtra*(prompt: string = ""): string =
   if not val:
     raise newException(EOFError, "abort")
   line
+
+proc touch*(fname: string): bool =
+  ## Create an empty file if the file doesn't exist.
+  ##
+  ## Return true, if the file exists. Return false, if the empty file was not created.
+  ## If the file exists, its date attribute won't be updated, thus it's simpler
+  ## than the Unix touch command.
+  if existsFile(fname):
+    return true
+  # else
+  writeFile(fname, "")
+  existsFile(fname)
+
+proc get_page*(url: string): string =
+  ## Fetch a web page and return its content.
+  ##
+  ## In case of error, return an empty string.
+  let client = newHttpClient()
+  try:
+    client.getContent(url)
+  except:
+    ""
+
+proc which*(fname: string): string =
+  ## Find a given file in the PATH and return its full path.
+  ##
+  ## If not found, return an empty string.
+  let
+    sep = if defined(windows): ";" else: ":"
+    dirs = getEnv("PATH").split(sep)
+
+  for dir in dirs:
+    let path = joinPath(dir, fname)
+    if existsFile(path):
+      return path
+  #
+  return ""    # not found
+
 
 # #######
 # Funcs #
@@ -233,6 +272,7 @@ func rstrip*(s: string, chars: string): string =
     bs = bs + {c}
   s.strip(leading=false, trailing=true, chars=bs)
 
+
 # ###########
 # Iterators #
 # ###########
@@ -280,6 +320,7 @@ iterator until*(a, b: int): int =
   while curr < b:
     yield curr
     inc curr
+
 
 # ###########
 # Templates #

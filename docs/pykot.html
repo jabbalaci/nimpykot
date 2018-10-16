@@ -1245,6 +1245,12 @@ function main() {
     title="input(prompt: string = &quot;&quot;): string"><wbr />input<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#inputExtra,string"
     title="inputExtra(prompt: string = &quot;&quot;): string"><wbr />input<wbr />Extra<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#touch,string"
+    title="touch(fname: string): bool"><wbr />touch<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#get_page,string"
+    title="get_page(url: string): string"><wbr />get_<wbr />page<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#which,string"
+    title="which(fname: string): string"><wbr />which<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
 </li>
@@ -1343,6 +1349,29 @@ function main() {
   <span class="Keyword">let</span> <span class="Identifier">name</span> <span class="Operator">=</span> <span class="Identifier">input</span><span class="Punctuation">(</span><span class="StringLit">&quot;Name: &quot;</span><span class="Punctuation">)</span>
 <span class="Keyword">except</span> <span class="Identifier">EOFError</span><span class="Punctuation">:</span>
   <span class="Identifier">echo</span> <span class="StringLit">&quot;Ctrl+D was pressed&quot;</span></pre>
+
+</dd>
+<dt id="touch"><a name="touch,string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">touch</span><span class="Other">(</span><span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">IOError</span><span class="Other">]</span><span class="Other">,</span>
+                              <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadDirEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>Create an empty file if the file doesn't exist.</p>
+<p>Return true, if the file exists. Return false, if the empty file was not created. If the file exists, its date attribute won't be updated, thus it's simpler than the Unix touch command.</p>
+
+
+</dd>
+<dt id="get_page"><a name="get_page,string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">get_page</span><span class="Other">(</span><span class="Identifier">url</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadIOEffect</span><span class="Other">,</span> <span class="Identifier">WriteIOEffect</span><span class="Other">,</span>
+    <span class="Identifier">TimeEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>Fetch a web page and return its content.</p>
+<p>In case of error, return an empty string.</p>
+
+
+</dd>
+<dt id="which"><a name="which,string"></a><pre><span class="Keyword">proc</span> <span class="Identifier">which</span><span class="Other">(</span><span class="Identifier">fname</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ReadEnvEffect</span><span class="Other">,</span> <span class="Identifier">ReadDirEffect</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>Find a given file in the PATH and return its full path.</p>
+<p>If not found, return an empty string.</p>
+
 
 </dd>
 
@@ -1585,10 +1614,10 @@ Convert something to string.
 <p>I saw it first in Kotlin.</p>
 
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">234728</span> <span class="Other">=</span> <span class="DecNumber">0</span>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">450728</span> <span class="Other">=</span> <span class="DecNumber">0</span>
 <span class="Identifier">repeat</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">234728</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">234728</span> <span class="Operator">==</span>
+  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">450728</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">450728</span> <span class="Operator">==</span>
     <span class="DecNumber">5</span></pre>
 
 </dd>
@@ -1596,12 +1625,12 @@ Convert something to string.
 <dd>
 Iterates through a container and checks if no item fulfills the predicate.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">234744</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
-<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">234744</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">234748</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
-  <span class="Identifier">x</span><span class="DecNumber">234748</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">450744</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
+<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">450744</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">450748</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
+  <span class="Identifier">x</span><span class="DecNumber">450748</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">true</span>
-<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">234744</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">234752</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
-  <span class="Identifier">x</span><span class="DecNumber">234752</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
+<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">450744</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">450752</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
+  <span class="Identifier">x</span><span class="DecNumber">450752</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">false</span></pre>
 
 </dd>
@@ -1609,10 +1638,10 @@ Iterates through a container and checks if no item fulfills the predicate.
 <dd>
 Iterates through a container and checks if no item fulfills the predicate.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">234759</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
-<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">234759</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">450759</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
+<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">450759</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">true</span>
-<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">234759</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
+<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">450759</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">false</span></pre>
 
 </dd>
@@ -1626,7 +1655,7 @@ Iterates through a container and checks if no item fulfills the predicate.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-10-12 09:01:27 UTC</small>
+        <small>Made with Nim. Generated: 2018-10-16 09:07:31 UTC</small>
       </div>
     </div>
   </div>
