@@ -79,6 +79,14 @@ suite "funcs":
     check "ab".reversedAscii == "ba"
     check "abcde".reversedAscii == "edcba"
 
+  test "lstrip":
+    check "  ab  ".lstrip() == "ab  "
+    check "\nab ".lstrip("\n") == "ab "
+    check "\t\nab ".lstrip("\n") == "\t\nab "
+    check "\t\nab ".lstrip("\n\t") == "ab "
+    check "\t\nab".lstrip("\t\n") == "ab"
+    check "\t\n ab ".lstrip("\t\n") == " ab "
+
   test "rstrip":
     check "  hello  ".rstrip() == "  hello"
     check "  hello \n".rstrip({'\n'}) == "  hello "

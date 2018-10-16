@@ -245,6 +245,34 @@ func reversedAscii*(s: string): string =
     inc i
     dec j
 
+func lstrip*(s: string, chars: set[char] = Whitespace): string =
+  ## Strips leading chars from s and returns the resulting string.
+  ##
+  ## If chars are not specified, leading whitespaces are removed.
+  ## Specify chars as a set of chars (bitset).
+  runnableExamples:
+    doAssert "  ab  ".lstrip() == "ab  "
+
+  s.strip(leading=true, trailing=false, chars=chars)
+
+func lstrip*(s: string, chars: string): string =
+  ## Strips leading chars from s and returns the resulting string.
+  ##
+  ## Specify chars in a string. The string is treated as a set of chars,
+  ## just like Python's lstrip().
+  runnableExamples:
+    doAssert "\nab ".lstrip("\n") == "ab "
+    doAssert "\t\nab ".lstrip("\n") == "\t\nab "
+    doAssert "\t\nab ".lstrip("\n\t") == "ab "
+    doAssert "\t\nab".lstrip("\t\n") == "ab"
+    doAssert "\t\n ab ".lstrip("\t\n") == " ab "
+
+  var bs: set[char] = {}
+  for c in chars:
+    bs = bs + {c}
+  s.strip(leading=true, trailing=false, chars=bs)
+    
+
 func rstrip*(s: string, chars: set[char] = Whitespace): string =
   ## Strips trailing chars from s and returns the resulting string.
   ##
