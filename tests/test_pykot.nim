@@ -2,6 +2,7 @@ import unittest
 import sequtils
 import strutils
 import unicode
+import sugar
 
 import pykot
 
@@ -92,6 +93,16 @@ suite "funcs":
     check "  hello \n".rstrip({'\n'}) == "  hello "
     check "  hello \n".rstrip("\n") == "  hello "
     check "  hello \n".rstrip("\n ") == "  hello"
+
+  test "partition":
+    let
+      words = @["mix", "xyz", "apple", "xanadu", "aardvark"]
+      partitions = words.partition(s => s[0] == 'x')
+    check partitions[0] == @["xyz", "xanadu"]
+    check partitions.t == partitions[0]
+    check partitions[1] == @["mix", "apple", "aardvark"]
+    check partitions.f == partitions[1]
+
 
 # ################
 suite "iterators":
@@ -195,3 +206,12 @@ suite "templates":
     check text.noneIt(it.isLowerAscii) == true
     text = "HELLo THERE"
     check text.noneIt(it.isLowerAscii) == false
+
+  test "partitionIt":
+    let
+      temperatures = @[-272.15, -2.0, 24.5, 44.31, 99.8, -113.44]
+      partitions = temperatures.partitionIt(it < 50 and it > -10)
+    check partitions[0] == @[-2.0, 24.5, 44.31]
+    check partitions.t == partitions[0]
+    check partitions[1] == @[-272.15, 99.8, -113.44]
+    check partitions.f == partitions[1]
