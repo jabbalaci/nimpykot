@@ -130,6 +130,20 @@ suite "iterators":
       inc counter
     check counter == 0
 
+  test "pyRange(b)":
+    var
+      res = newSeq[int]()
+    for i in pyRange(5):
+      res.add(i)
+    check res == @[0, 1, 2, 3, 4]
+
+  test "pyRange(a, b)":
+    var
+      res = newSeq[int]()
+    for i in pyRange(5, 8):
+      res.add(i)
+    doAssert res == @[5, 6, 7]
+
 
 # ################
 suite "templates":

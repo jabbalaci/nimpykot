@@ -428,6 +428,38 @@ iterator until*(a, b: int): int =
     yield curr
     inc curr
 
+iterator pyRange*(b: int): int =
+  ## An iterator that goes from `0` (incl.) until `b` (excl.).
+  ##
+  ## Mimics Python's `range()`. `system.range` exists, so it had to be renamed.
+  runnableExamples:
+    var
+      res = newSeq[int]()
+    for i in pyRange(5):
+      res.add(i)
+    doAssert res == @[0, 1, 2, 3, 4]
+
+  var curr = 0
+  while curr < b:
+    yield curr
+    inc curr
+
+iterator pyRange*(a, b: int): int =
+  ## An iterator that goes from `a` (incl.) until `b` (excl.).
+  ##
+  ## Mimics Python's `range()`. `system.range` exists, so it had to be renamed.
+  runnableExamples:
+    var
+      res = newSeq[int]()
+    for i in pyRange(5, 8):
+      res.add(i)
+    doAssert res == @[5, 6, 7]
+
+  var curr = a
+  while curr < b:
+    yield curr
+    inc curr
+
 
 # ###########
 # Templates #

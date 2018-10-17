@@ -1339,6 +1339,10 @@ function main() {
     title="indicesAscii(s: string): int"><wbr />indices<wbr />Ascii<span class="attachedType" style="visibility:hidden"></span></a></li>
   <li><a class="reference" href="#until.i,int,int"
     title="until(a, b: int): int"><wbr />until<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#pyRange.i,int"
+    title="pyRange(b: int): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
+  <li><a class="reference" href="#pyRange.i,int,int"
+    title="pyRange(a, b: int): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
 </li>
@@ -1691,6 +1695,30 @@ An iterator over the indices of an ASCII string.
 <span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">]</span></pre>
 
 </dd>
+<dt id="pyRange"><a name="pyRange.i,int"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>An iterator that goes from <cite>0</cite> (incl.) until <cite>b</cite> (excl.).</p>
+<p>Mimics Python's <cite>range()</cite>. <cite>system.range</cite> exists, so it had to be renamed.</p>
+
+<p><strong class="examples_text">Examples:</strong></p>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">res</span> <span class="Other">=</span> <span class="Identifier">newSeq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span>
+<span class="Keyword">for</span> <span class="Identifier">i</span> <span class="Keyword">in</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
+  <span class="Identifier">res</span><span class="Other">.</span><span class="Identifier">add</span><span class="Other">(</span><span class="Identifier">i</span><span class="Other">)</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span></pre>
+
+</dd>
+<dt id="pyRange"><a name="pyRange.i,int,int"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dd>
+<p>An iterator that goes from <cite>a</cite> (incl.) until <cite>b</cite> (excl.).</p>
+<p>Mimics Python's <cite>range()</cite>. <cite>system.range</cite> exists, so it had to be renamed.</p>
+
+<p><strong class="examples_text">Examples:</strong></p>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">res</span> <span class="Other">=</span> <span class="Identifier">newSeq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span>
+<span class="Keyword">for</span> <span class="Identifier">i</span> <span class="Keyword">in</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">)</span><span class="Other">:</span>
+  <span class="Identifier">res</span><span class="Other">.</span><span class="Identifier">add</span><span class="Other">(</span><span class="Identifier">i</span><span class="Other">)</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">6</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">]</span></pre>
+
+</dd>
 
 </dl></div>
 <div class="section" id="18">
@@ -1722,10 +1750,10 @@ Convert something to string.
 <p>I saw it first in Kotlin.</p>
 
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">463189</span> <span class="Other">=</span> <span class="DecNumber">0</span>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">463245</span> <span class="Other">=</span> <span class="DecNumber">0</span>
 <span class="Identifier">repeat</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">463189</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">463189</span> <span class="Operator">==</span>
+  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">463245</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">463245</span> <span class="Operator">==</span>
     <span class="DecNumber">5</span></pre>
 
 </dd>
@@ -1733,12 +1761,12 @@ Convert something to string.
 <dd>
 Iterates through a container and checks if no item fulfills the predicate.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">463205</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
-<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463205</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">463209</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
-  <span class="Identifier">x</span><span class="DecNumber">463209</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">463261</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
+<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463261</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">463265</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
+  <span class="Identifier">x</span><span class="DecNumber">463265</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">true</span>
-<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463205</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">463213</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
-  <span class="Identifier">x</span><span class="DecNumber">463213</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
+<span class="Identifier">assert</span> <span class="Identifier">none</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463261</span><span class="Other">,</span> <span class="Keyword">proc</span> <span class="Other">(</span><span class="Identifier">x</span><span class="DecNumber">463269</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">bool</span> <span class="Other">=</span>
+  <span class="Identifier">x</span><span class="DecNumber">463269</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">false</span></pre>
 
 </dd>
@@ -1746,10 +1774,10 @@ Iterates through a container and checks if no item fulfills the predicate.
 <dd>
 Iterates through a container and checks if no item fulfills the predicate.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">463220</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
-<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463220</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
+<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span><span class="DecNumber">463276</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span>
+<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463276</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">10</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">true</span>
-<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463220</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
+<span class="Identifier">assert</span> <span class="Identifier">noneIt</span><span class="Other">(</span><span class="Identifier">numbers</span><span class="DecNumber">463276</span><span class="Other">,</span> <span class="Identifier">it</span> <span class="Operator">&gt;</span> <span class="DecNumber">5</span><span class="Other">)</span> <span class="Operator">==</span>
     <span class="Identifier">false</span></pre>
 
 </dd>
@@ -1763,7 +1791,7 @@ Iterates through a container and checks if no item fulfills the predicate.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-10-17 16:17:03 UTC</small>
+        <small>Made with Nim. Generated: 2018-10-17 18:39:19 UTC</small>
       </div>
     </div>
   </div>
