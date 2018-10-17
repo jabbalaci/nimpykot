@@ -1,9 +1,73 @@
 import httpclient    # get_page() needs it
 import strutils
+import strformat
 import sequtils
 import unicode
 import rdstdin       # inputExtra() needs it
 import os            # touch() needs it
+import osproc
+
+
+# #######
+# Types #
+# #######
+
+type
+  Negative* = range[low(int) .. -1]    ## As I missed it from the `system` module.
+
+  JabbaSys = tuple
+    argv: seq[string]
+
+  JabbaString = tuple
+    ascii_letters: string
+    ascii_lowercase: string
+    ascii_uppercase: string
+    digits: string
+    hexdigits: string
+    # printable: string
+    # punctuation: string
+    whitespace: string
+
+
+# ######
+# Vars #
+# ######
+
+proc getArgv(): seq[string] =
+  result &= getAppFilename()
+  for i in 1 .. paramCount():
+    result &= paramStr(i)
+
+var sys*: JabbaSys = (
+  argv: getArgv()
+)
+  ## Mimics Python's `sys.argv`. It contains the file name and the parameters,
+  ## just like in C or Python.
+  ##
+  ## `sys.argv` can be modified in Python, that's why it's a `var`.
+
+
+# ########
+# Consts #
+# ########
+
+# from Python 3.7.0
+# PkString stands for "PyKot String", since "string" is a built-in type of Nim
+const PkString*: JabbaString = (
+  ascii_letters: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  ascii_lowercase: "abcdefghijklmnopqrstuvwxyz",
+  ascii_uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  digits: "0123456789",
+  hexdigits: "0123456789abcdefABCDEF",
+  # printable: "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c",
+  # punctuation: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
+  whitespace: " \t\n\r\x0b\x0c"
+)
+  ## Mimics Python's `string` module. Since `string` is a built-in type in Nim,
+  ## it was renamed to PkString (PyKot String).
+  ##
+  ## Usage example: `PkString.ascii_lowercase`.
+  ## PkString is a tuple.
 
 
 # #######
@@ -79,6 +143,21 @@ proc which*(fname: string): string =
       return path
   #
   return ""    # not found
+
+proc execute_command*(cmd: string, debug = true): int =
+  ## Execute a simple external command and return its exit status.
+  if debug:
+    echo &"# {cmd}"
+
+  execCmd(cmd)
+
+proc get_simple_cmd_output*(cmd: string, strip = false): string =
+  ## Execute a simple external command and return its output.
+  var text = execProcess(cmd)
+  if strip:
+    text = text.strip
+  #
+  text
 
 
 # #######

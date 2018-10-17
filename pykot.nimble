@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.1"
+version       = "0.1.2"
 author        = "Laszlo Szathmary (Jabba Laci)"
 description   = "Porting some Python / Kotlin features to Nim"
 license       = "MIT"
