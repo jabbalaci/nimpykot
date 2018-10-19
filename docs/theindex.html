@@ -16,7 +16,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>Module pykot</title>
+<title>Index</title>
 <style type="text/css" >
 /*
 Stylesheet for use with Docutils/rst2html.
@@ -1219,168 +1219,174 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">Module pykot</h1>
-    <div class="row">
-  <div class="three columns">
-  <div id="global-links">
-    <ul class="simple">
-    </ul>
-  </div>
-  <div id="searchInputDiv">
-    Search: <input type="text" id="searchInput"
-      onkeyup="search()" />
-  </div>
-  <div>
-    Group by:
-    <select onchange="groupBy(this.value)">
-      <option value="section">Section</option>
-      <option value="type">Type</option>
-    </select>
-  </div>
-  <ul class="simple simple-toc" id="toc-list">
-<li>
-  <a class="reference reference-toplevel" href="#13" id="63">Funcs</a>
-  <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#lastIndex%2Cseq%5BT%5D"
-    title="lastIndex[T](a: seq[T]): int"><wbr />last<wbr />Index<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#last%2Cseq%5BT%5D"
-    title="last[T](a: seq[T]): T"><wbr />last<span class="attachedType" style="visibility:hidden"></span></a></li>
-
-  </ul>
-</li>
-<li>
-  <a class="reference reference-toplevel" href="#15" id="65">Iterators</a>
-  <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#indices.i%2Cseq%5BT%5D"
-    title="indices[T](a: seq[T]): int"><wbr />indices<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#until.i%2Cint%2Cint"
-    title="until(a, b: int): int"><wbr />until<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pyRange.i%2Cint"
-    title="pyRange(b: int): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pyRange.i%2Cint%2Cint%2CPositive"
-    title="pyRange(a, b: int; step: Positive = 1): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
-
-  </ul>
-</li>
-<li>
-  <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
-  <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#loop.t%2Cstatic%5BNatural%5D%2Cuntyped"
-    title="loop(times: static[Natural]; body: untyped): untyped"><wbr />loop<span class="attachedType" style="visibility:hidden"></span></a></li>
-
-  </ul>
-</li>
-
-</ul>
-
-  </div>
-  <div class="nine columns" id="content">
-  <div id="tocRoot"></div>
-  <p class="module-desc"></p>
-  <div class="section" id="13">
-<h1><a class="toc-backref" href="#13">Funcs</a></h1>
-<dl class="item">
-<a id="lastIndex,seq[T]"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">lastIndex</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
-<dd>
-Return the index of the last element of a sequence.
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">a</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">]</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">a</span><span class="Other">.</span><span class="Identifier">lastIndex</span> <span class="Operator">==</span> <span class="DecNumber">3</span></pre>
-
-</dd>
-<a id="last,seq[T]"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">last</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span></pre></dt>
-<dd>
-Last element of a sequence.
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">2</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">]</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">numbers</span><span class="Other">.</span><span class="Identifier">last</span> <span class="Operator">==</span> <span class="DecNumber">9</span></pre>
-
-</dd>
-
-</dl></div>
-<div class="section" id="15">
-<h1><a class="toc-backref" href="#15">Iterators</a></h1>
-<dl class="item">
-<a id="indices.i,seq[T]"></a>
-<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">indices</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
-<dd>
-An iterator over the indices of a sequence.<pre class="listing"><span class="Keyword">import</span>
-  <span class="Identifier">sequtils</span>
-
-<span class="Keyword">let</span>
-  <span class="Identifier">numbers</span> <span class="Operator">=</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">2</span><span class="Punctuation">,</span> <span class="DecNumber">5</span><span class="Punctuation">,</span> <span class="DecNumber">8</span><span class="Punctuation">,</span> <span class="DecNumber">4</span><span class="Punctuation">]</span>
-  <span class="Identifier">res</span> <span class="Operator">=</span> <span class="Identifier">toSeq</span><span class="Punctuation">(</span><span class="Identifier">numbers</span><span class="Operator">.</span><span class="Identifier">indices</span><span class="Punctuation">)</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">0</span><span class="Punctuation">,</span> <span class="DecNumber">1</span><span class="Punctuation">,</span> <span class="DecNumber">2</span><span class="Punctuation">,</span> <span class="DecNumber">3</span><span class="Punctuation">]</span></pre>
-
-</dd>
-<a id="until.i,int,int"></a>
-<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">until</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-<p>An iterator that goes from <cite>a</cite> (incl.) until <cite>b</cite> (excl.).</p>
-<p>I first saw this construction in Kotlin.</p>
-
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">res</span> <span class="Other">=</span> <span class="Identifier">newSeq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span>
-<span class="Keyword">for</span> <span class="Operator">_</span> <span class="Keyword">in</span> <span class="DecNumber">1</span><span class="Other">.</span><span class="Identifier">until</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">res</span><span class="Other">.</span><span class="Identifier">add</span><span class="Other">(</span><span class="DecNumber">0</span><span class="Other">)</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">]</span></pre>
-
-</dd>
-<a id="pyRange.i,int"></a>
-<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-<p>An iterator that goes from <cite>0</cite> (incl.) until <cite>b</cite> (excl.).</p>
-<p>Mimics Python's <cite>range()</cite>. <cite>system.range</cite> exists, so it had to be renamed.</p>
-
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">res</span> <span class="Other">=</span> <span class="Identifier">newSeq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span>
-<span class="Keyword">for</span> <span class="Identifier">i</span> <span class="Keyword">in</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">res</span><span class="Other">.</span><span class="Identifier">add</span><span class="Other">(</span><span class="Identifier">i</span><span class="Other">)</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span></pre>
-
-</dd>
-<a id="pyRange.i,int,int,Positive"></a>
-<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">step</span><span class="Other">:</span> <span class="Identifier">Positive</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
-<dd>
-<p>An iterator that goes from <cite>a</cite> (incl.) until <cite>b</cite> (excl.). <cite>step</cite> is optional and must be &gt;= 1.</p>
-<p>Mimics Python's <cite>range()</cite>. <cite>system.range</cite> exists, so it had to be renamed. Negative step is not supported. Use <cite>countdown</cite> in that case.</p>
-
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">res</span> <span class="Other">=</span> <span class="Identifier">newSeq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span><span class="Other">(</span><span class="Other">)</span>
-<span class="Keyword">for</span> <span class="Identifier">i</span> <span class="Keyword">in</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">res</span><span class="Other">.</span><span class="Identifier">add</span><span class="Other">(</span><span class="Identifier">i</span><span class="Other">)</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">5</span><span class="Other">,</span> <span class="DecNumber">6</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">]</span></pre>
-
-</dd>
-
-</dl></div>
-<div class="section" id="18">
-<h1><a class="toc-backref" href="#18">Templates</a></h1>
-<dl class="item">
-<a id="loop.t,static[Natural],untyped"></a>
-<dt><pre><span class="Keyword">template</span> <span class="Identifier">loop</span><span class="Other">(</span><span class="Identifier">times</span><span class="Other">:</span> <span class="Identifier">static</span><span class="Other">[</span><span class="Identifier">Natural</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
-<dd>
-Execute the body in a loop N times, i.e. repeat the body N times.
-<p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span> <span class="Other">=</span> <span class="DecNumber">0</span>
-<span class="Identifier">loop</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">inc</span> <span class="Identifier">cnt</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span> <span class="Operator">==</span> <span class="DecNumber">5</span></pre>
-
-</dd>
-
-</dl></div>
-
-  </div>
-</div>
-
+    <h1 class="title">Index</h1>
+    Modules: <a href="console.html">console</a>, <a href="converters.html">converters</a>, <a href="fs.html">fs</a>, <a href="functional.html">functional</a>, <a href="pretty.html">pretty</a>, <a href="process.html">process</a>, <a href="pykot.html">pykot</a>, <a href="strings.html">strings</a>, <a href="sys.html">sys</a>, <a href="types.html">types</a>, <a href="web.html">web</a>.<br/><p /><h2>API symbols</h2>
+<dl><dt><a name="%60%2B%60" href="#%60%2B%60"><span>`+`:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: `+`(s, t: string): string" href="strings.html#%2B%2Cstring%2Cstring">strings: `+`(s, t: string): string</a></li>
+          </ul></dd>
+<dt><a name="execute_command" href="#execute_command"><span>execute_command:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="process: execute_command(cmd: string; debug = true): int" href="process.html#execute_command%2Cstring">process: execute_command(cmd: string; debug = true): int</a></li>
+          </ul></dd>
+<dt><a name="get_page" href="#get_page"><span>get_page:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="web: get_page(url: string): string" href="web.html#get_page%2Cstring">web: get_page(url: string): string</a></li>
+          </ul></dd>
+<dt><a name="get_simple_cmd_output" href="#get_simple_cmd_output"><span>get_simple_cmd_output:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="process: get_simple_cmd_output(cmd: string): string" href="process.html#get_simple_cmd_output%2Cstring">process: get_simple_cmd_output(cmd: string): string</a></li>
+          </ul></dd>
+<dt><a name="indices" href="#indices"><span>indices:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: indices[T](a: seq[T]): int" href="pykot.html#indices.i%2Cseq%5BT%5D">pykot: indices[T](a: seq[T]): int</a></li>
+          </ul></dd>
+<dt><a name="indicesAscii" href="#indicesAscii"><span>indicesAscii:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: indicesAscii(s: string): int" href="strings.html#indicesAscii.i%2Cstring">strings: indicesAscii(s: string): int</a></li>
+          </ul></dd>
+<dt><a name="input" href="#input"><span>input:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="console: input(prompt: string = &quot;&quot;): string" href="console.html#input%2Cstring">console: input(prompt: string = &quot;&quot;): string</a></li>
+          </ul></dd>
+<dt><a name="inputExtra" href="#inputExtra"><span>inputExtra:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="console: inputExtra(prompt: string = &quot;&quot;): string" href="console.html#inputExtra%2Cstring">console: inputExtra(prompt: string = &quot;&quot;): string</a></li>
+          </ul></dd>
+<dt><a name="last" href="#last"><span>last:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: last[T](a: seq[T]): T" href="pykot.html#last%2Cseq%5BT%5D">pykot: last[T](a: seq[T]): T</a></li>
+          </ul></dd>
+<dt><a name="lastAscii" href="#lastAscii"><span>lastAscii:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: lastAscii(s: string): char" href="strings.html#lastAscii%2Cstring">strings: lastAscii(s: string): char</a></li>
+          </ul></dd>
+<dt><a name="lastIndex" href="#lastIndex"><span>lastIndex:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: lastIndex[T](a: seq[T]): int" href="pykot.html#lastIndex%2Cseq%5BT%5D">pykot: lastIndex[T](a: seq[T]): int</a></li>
+          </ul></dd>
+<dt><a name="lastIndexAscii" href="#lastIndexAscii"><span>lastIndexAscii:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: lastIndexAscii(s: string): int" href="strings.html#lastIndexAscii%2Cstring">strings: lastIndexAscii(s: string): int</a></li>
+          </ul></dd>
+<dt><a name="lastRune" href="#lastRune"><span>lastRune:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: lastRune(s: string): Rune" href="strings.html#lastRune%2Cstring">strings: lastRune(s: string): Rune</a></li>
+          </ul></dd>
+<dt><a name="lchop" href="#lchop"><span>lchop:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: lchop(s, sub: string): string" href="strings.html#lchop%2Cstring%2Cstring">strings: lchop(s, sub: string): string</a></li>
+          </ul></dd>
+<dt><a name="loop" href="#loop"><span>loop:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: loop(times: static[Natural]; body: untyped): untyped" href="pykot.html#loop.t%2Cstatic%5BNatural%5D%2Cuntyped">pykot: loop(times: static[Natural]; body: untyped): untyped</a></li>
+          </ul></dd>
+<dt><a name="lstrip" href="#lstrip"><span>lstrip:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: lstrip(s: string; chars: set[char] = Whitespace): string" href="strings.html#lstrip%2Cstring%2Cset%5Bchar%5D">strings: lstrip(s: string; chars: set[char] = Whitespace): string</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="strings: lstrip(s: string; chars: string): string" href="strings.html#lstrip%2Cstring%2Cstring">strings: lstrip(s: string; chars: string): string</a></li>
+          </ul></dd>
+<dt><a name="Negative" href="#Negative"><span>Negative:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="types: Negative" href="types.html#Negative">types: Negative</a></li>
+          </ul></dd>
+<dt><a name="none" href="#none"><span>none:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="functional: none[T](s: openArray[T]; pred: proc (x: T): bool {.closure.}): bool" href="functional.html#none.t%2CopenArray%5BT%5D%2Cproc%28T%29">functional: none[T](s: openArray[T]; pred: proc (x: T): bool {.closure.}): bool</a></li>
+          </ul></dd>
+<dt><a name="noneIt" href="#noneIt"><span>noneIt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="functional: noneIt(s, pred: untyped): bool" href="functional.html#noneIt.t%2Cuntyped%2Cuntyped">functional: noneIt(s, pred: untyped): bool</a></li>
+          </ul></dd>
+<dt><a name="partition" href="#partition"><span>partition:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="functional: partition[T](s: openArray[T]; pred: proc (x: T): bool {.closure.}): tuple[t: seq[T],
+    f: seq[T]]" href="functional.html#partition%2CopenArray%5BT%5D%2Cproc%28T%29">functional: partition[T](s: openArray[T]; pred: proc (x: T): bool {.closure.}): tuple[t: seq[T],
+    f: seq[T]]</a></li>
+          </ul></dd>
+<dt><a name="partitionIt" href="#partitionIt"><span>partitionIt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="functional: partitionIt[T](s: openArray[T]; pred: untyped): tuple[t: seq[T], f: seq[T]]" href="functional.html#partitionIt.t%2CopenArray%5BT%5D%2Cuntyped">functional: partitionIt[T](s: openArray[T]; pred: untyped): tuple[t: seq[T], f: seq[T]]</a></li>
+          </ul></dd>
+<dt><a name="PkString" href="#PkString"><span>PkString:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: PkString" href="strings.html#PkString">strings: PkString</a></li>
+          </ul></dd>
+<dt><a name="prettyNum" href="#prettyNum"><span>prettyNum:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pretty: prettyNum(n: int; sep = &#x27;,&#x27;): string" href="pretty.html#prettyNum%2Cint%2CChar">pretty: prettyNum(n: int; sep = &#x27;,&#x27;): string</a></li>
+          </ul></dd>
+<dt><a name="pyRange" href="#pyRange"><span>pyRange:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: pyRange(b: int): int" href="pykot.html#pyRange.i%2Cint">pykot: pyRange(b: int): int</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="pykot: pyRange(a, b: int; step: Positive = 1): int" href="pykot.html#pyRange.i%2Cint%2Cint%2CPositive">pykot: pyRange(a, b: int; step: Positive = 1): int</a></li>
+          </ul></dd>
+<dt><a name="rchop" href="#rchop"><span>rchop:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: rchop(s, sub: string): string" href="strings.html#rchop%2Cstring%2Cstring">strings: rchop(s, sub: string): string</a></li>
+          </ul></dd>
+<dt><a name="reversedAscii" href="#reversedAscii"><span>reversedAscii:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: reversedAscii(s: string): string" href="strings.html#reversedAscii%2Cstring">strings: reversedAscii(s: string): string</a></li>
+          </ul></dd>
+<dt><a name="rstrip" href="#rstrip"><span>rstrip:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="strings: rstrip(s: string; chars: set[char] = Whitespace): string" href="strings.html#rstrip%2Cstring%2Cset%5Bchar%5D">strings: rstrip(s: string; chars: set[char] = Whitespace): string</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="strings: rstrip(s: string; chars: string): string" href="strings.html#rstrip%2Cstring%2Cstring">strings: rstrip(s: string; chars: string): string</a></li>
+          </ul></dd>
+<dt><a name="str" href="#str"><span>str:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="converters: str(a: untyped): string" href="converters.html#str.t%2Cuntyped">converters: str(a: untyped): string</a></li>
+          </ul></dd>
+<dt><a name="sys" href="#sys"><span>sys:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="sys: sys" href="sys.html#sys">sys: sys</a></li>
+          </ul></dd>
+<dt><a name="toFloat" href="#toFloat"><span>toFloat:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="converters: toFloat(c: char): float" href="converters.html#toFloat%2Cchar">converters: toFloat(c: char): float</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="converters: toFloat(f: float): float" href="converters.html#toFloat%2Cfloat">converters: toFloat(f: float): float</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="converters: toFloat(s: string): float" href="converters.html#toFloat%2Cstring">converters: toFloat(s: string): float</a></li>
+          </ul></dd>
+<dt><a name="toInt" href="#toInt"><span>toInt:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="converters: toInt(digit: char): int" href="converters.html#toInt%2Cchar">converters: toInt(digit: char): int</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="converters: toInt(n: int): int" href="converters.html#toInt%2Cint">converters: toInt(n: int): int</a></li>
+          <li><a class="reference external"
+          data-doc-search-tag="converters: toInt(s: string): int" href="converters.html#toInt%2Cstring">converters: toInt(s: string): int</a></li>
+          </ul></dd>
+<dt><a name="toIntPart" href="#toIntPart"><span>toIntPart:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="converters: toIntPart(f: float): int" href="converters.html#toIntPart%2Cfloat">converters: toIntPart(f: float): int</a></li>
+          </ul></dd>
+<dt><a name="toStr" href="#toStr"><span>toStr:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="converters: toStr(a: untyped): string" href="converters.html#toStr.t%2Cuntyped">converters: toStr(a: untyped): string</a></li>
+          </ul></dd>
+<dt><a name="touch" href="#touch"><span>touch:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fs: touch(fname: string): bool" href="fs.html#touch%2Cstring">fs: touch(fname: string): bool</a></li>
+          </ul></dd>
+<dt><a name="until" href="#until"><span>until:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="pykot: until(a, b: int): int" href="pykot.html#until.i%2Cint%2Cint">pykot: until(a, b: int): int</a></li>
+          </ul></dd>
+<dt><a name="which" href="#which"><span>which:</span></a></dt><dd><ul class="simple">
+<li><a class="reference external"
+          data-doc-search-tag="fs: which(fname: string): string" href="fs.html#which%2Cstring">fs: which(fname: string): string</a></li>
+          </ul></dd>
+</dl>
     <div class="row">
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-10-19 21:21:45 UTC</small>
+        <small>Made with Nim. Generated: 2018-10-19 21:22:09 UTC</small>
       </div>
     </div>
   </div>

@@ -10,8 +10,6 @@ Installation
 $ nimble install pykot
 ```
 
-Or, simply copy the file `src/pykot.nim` to your project folder and import it.
-
 To install the latest development version, issue the following command:
 
 ```bash
@@ -23,9 +21,6 @@ With `nimble uninstall pykot` you can remove the package.
 Notes
 -----
 
-* examples: [tests/test_pykot.nim](tests/test_pykot.nim)
-* docs: [docs/pykot.html](https://htmlpreview.github.io/?https://github.com/jabbalaci/nimpykot/blob/master/docs/pykot.html)
-
 The project was inspired by <https://github.com/Yardanico/nimpylib>.
 
 Sample
@@ -36,20 +31,15 @@ Example: 1977 → 7791.
 
 ```nim
 import unicode
-import pykot
+import pykot/converters
 
 proc reverse_number(n: int): int =
   n.toStr().reversed().toInt()
 
 let n = 2018
 
-echo n
-echo reverse_number(n)
+echo n                    # 2018
+echo reverse_number(n)    # 8102
 ```
 
-Output:
-
-```
-2018
-8102
-```
+See the [samples/](samples) directory for more examples.
