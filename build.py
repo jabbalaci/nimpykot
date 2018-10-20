@@ -122,10 +122,11 @@ def copy_dir(src, dest):
     print(f"└ end: copy {pretty(src)} -> {pretty(dest)}")
 
 
-def copy_file(src, dest):
-    p = Path(dest)
-    if not p.exists():
-        p.mkdir(parents=True)
+def copy_file(src, dest, create_dir=True):
+    if create_dir:
+        p = Path(dest)
+        if not p.exists():
+            p.mkdir(parents=True)
     print(f"┌ start: copy {src} -> {pretty(dest)}")
     shutil.copy(src, dest)
     print(f"└ end: copy {src} -> {pretty(dest)}")
@@ -244,10 +245,7 @@ def doc():
         for f in nim_files:
             p = Path(f)
             stem = p.stem    # /path/to/something.nim -> something (just filename without extension)
-            cmd = f"nim doc --index:on -o:docs/htmldocs/{stem}.html {f}"
-            call_external_command(cmd)
-            #
-            cmd = f"nim doc --docSeeSrcUrl:txt {f}"
+            cmd = f"nim doc --index:on --docSeeSrcUrl:txt -o:docs/htmldocs/{stem}.html {f}"
             call_external_command(cmd)
 
     if True:
@@ -255,10 +253,10 @@ def doc():
         cmd = "nim buildIndex docs/htmldocs/"
         call_external_command(cmd)
 
-    # if True:
-    #     # rename theindex.html to index.html
-    #     # for github pages it's better if it's called index.html
-    #     rename_file("docs/theindex.html", "docs/index.html")
+    if True:
+        # copy theindex.html to index.html
+        # for github pages it's better if it's called index.html
+        copy_file("docs/theindex.html", "docs/index.html", create_dir=False)
 
     if True:
         # move the .html files
