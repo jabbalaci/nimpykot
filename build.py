@@ -255,10 +255,10 @@ def doc():
         cmd = "nim buildIndex docs/htmldocs/"
         call_external_command(cmd)
 
-    if True:
-        # rename theindex.html to index.html
-        # for github pages it's better if it's called index.html
-        rename_file("docs/theindex.html", "docs/index.html")
+    # if True:
+    #     # rename theindex.html to index.html
+    #     # for github pages it's better if it's called index.html
+    #     rename_file("docs/theindex.html", "docs/index.html")
 
     if True:
         # move the .html files
@@ -276,7 +276,8 @@ def doc():
         print()
         inp = input("Open theindex.html in your browser [y/N]? ").strip()
         if inp == "y":
-            call_external_command(f"{BROWSER} docs/index.html")    # it was renamed
+            call_external_command(f"{BROWSER} docs/theindex.html")
+            # call_external_command(f"{BROWSER} docs/index.html")    # it was renamed
 
 
 @task()
