@@ -1,5 +1,8 @@
-language: c
-compiler:
-  - gcc
+sudo: required
+services:
+  - docker
+before_install:
+  - docker pull nimlang/nim
 script:
-  - nimble test --cc:$CC --verbosity:0
+  - docker run nimlang/nim nim --version
+  - docker run -v "$(pwd):/project" -w /project nimlang/nim sh -c "nimble install -dy && nimble test"
