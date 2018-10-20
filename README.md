@@ -1,6 +1,8 @@
 NimPyKot
 ========
 
+[![Build Status](https://travis-ci.org/jabbalaci/nimpykot.svg?branch=master)](https://travis-ci.org/jabbalaci/nimpykot)
+
 Porting some Python / Kotlin features to Nim.
 
 Installation
