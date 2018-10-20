@@ -234,6 +234,10 @@ def doc():
     # traverse() returns absolute paths
 
     if True:
+        # delete the docs/ folder
+        remove_directory("docs/")
+
+    if True:
         # generate HTML files (docs) for the source files
         # index files (.idx) are also created
         nim_files = [f for f in traverse("src/") if f.endswith(".nim")]
@@ -242,11 +246,19 @@ def doc():
             stem = p.stem    # /path/to/something.nim -> something (just filename without extension)
             cmd = f"nim doc --index:on -o:docs/htmldocs/{stem}.html {f}"
             call_external_command(cmd)
+            #
+            cmd = f"nim doc --docSeeSrcUrl:txt {f}"
+            call_external_command(cmd)
 
     if True:
         # build theindex.html
         cmd = "nim buildIndex docs/htmldocs/"
         call_external_command(cmd)
+
+    if True:
+        # rename theindex.html to index.html
+        # for github pages it's better if it's called index.html
+        rename_file("docs/theindex.html", "docs/index.html")
 
     if True:
         # move the .html files
@@ -264,7 +276,7 @@ def doc():
         print()
         inp = input("Open theindex.html in your browser [y/N]? ").strip()
         if inp == "y":
-            call_external_command(f"{BROWSER} docs/theindex.html")
+            call_external_command(f"{BROWSER} docs/index.html")    # it was renamed
 
 
 @task()
