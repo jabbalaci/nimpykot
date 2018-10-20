@@ -204,11 +204,6 @@ def _clean_folder(dir_name):
     """
     remove the compiled EXEs
     """
-    # all_files = glob(f"{dir_name}/*")
-    # nim_files = glob(f"{dir_name}/*.nim*")
-    # non_nim_files = [fname for fname in (set(all_files) - set(nim_files)) if os.path.isfile(fname)]
-    # for fname in non_nim_files:
-    #     remove_file(fname, verbose=False)
     nim_files = glob(f"{dir_name}/*.nim")
     without_exts = [rchop(f, ".nim") for f in nim_files]
     for fname in without_exts:
