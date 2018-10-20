@@ -18,6 +18,11 @@ $ nimble install "https://github.com/jabbalaci/nimpykot@#head"
 
 With `nimble uninstall pykot` you can remove the package.
 
+API Documentation
+-----------------
+
+See here: https://jabbalaci.github.io/nimpykot/ .
+
 Notes
 -----
 

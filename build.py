@@ -234,6 +234,8 @@ def doc():
     """
     # traverse() returns absolute paths
 
+    # URL = "https://github.com/jabbalaci/nimpykot/blob/master"
+
     if True:
         # delete the docs/ folder
         remove_directory("docs/")
@@ -245,7 +247,8 @@ def doc():
         for f in nim_files:
             p = Path(f)
             stem = p.stem    # /path/to/something.nim -> something (just filename without extension)
-            cmd = f"nim doc --index:on --docSeeSrcUrl:txt -o:docs/htmldocs/{stem}.html {f}"
+            # cmd = f"nim doc --index:on --docSeeSrcUrl:{URL} -o:docs/htmldocs/{stem}.html {f}"
+            cmd = f"nim doc --index:on -o:docs/htmldocs/{stem}.html {f}"
             call_external_command(cmd)
 
     if True:
