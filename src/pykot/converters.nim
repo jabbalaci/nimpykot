@@ -1,5 +1,7 @@
 import strutils
 
+## Convert various types to other types, e.g. int -> string.
+
 
 # #######
 # Funcs #
@@ -44,7 +46,7 @@ func toIntPart*(f: float): int =
     doAssert (3.8).toIntPart == 3
     doAssert (-3.2).toIntPart == -3
     doAssert (-3.8).toIntPart == -3
-  
+
   int(f)
 
 func toFloat*(f: float): float =

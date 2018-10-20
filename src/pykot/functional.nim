@@ -1,5 +1,7 @@
 import sequtils
 
+## Some support for functional style programming.
+
 
 # #######
 # Funcs #

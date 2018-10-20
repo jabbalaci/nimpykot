@@ -2,6 +2,7 @@ import unittest
 
 import pykot/types
 
+
 # ############
 suite "types":
 # ############

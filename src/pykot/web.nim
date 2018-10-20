@@ -1,5 +1,8 @@
 import httpclient
 
+## Web-related things, e.g. download the content
+## of a webpage.
+
 
 # #######
 # Procs #

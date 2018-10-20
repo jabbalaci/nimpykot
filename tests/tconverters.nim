@@ -12,20 +12,20 @@ suite "converters":
     check toInt(20) == 20
     check toInt("23") == 23
     check toInt('9') == 9
-  
+
     # system.toInt() does rounding
     check toInt(3.14) == 3
     check toInt(-3.14) == -3
     check toInt(3.99) == 4
     check toInt(-3.99) == -4
-  
+
   test "toIntPart":
     # keep just the integer part, i.e. no rounding
     check toIntPart(3.14) == 3
     check toIntPart(-3.14) == -3
     check toIntPart(3.99) == 3
     check toIntPart(-3.99) == -3
-  
+
   test "toFloat":
     check toFLoat(0) == 0.0
     check toFLoat(2) == 2.0

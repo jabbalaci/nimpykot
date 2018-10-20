@@ -8,25 +8,25 @@ import pykot
 # ############
 suite "pykot":
 # ############
-  test "lastIndex with sequences":
+  test "lastIndex of a sequence":
     let empty = newSeq[int]()
     check empty.lastIndex == -1
     check @[9].lastIndex == 0
     check @[1, 6, 4, 8].lastIndex == 3
-    
-  test "last with sequence":
+
+  test "last element of a sequence":
     let numbers = @[3, 4, 5, 6]
     check numbers.last == 6
-  
-  test "indices with sequences":
+
+  test "indices of a sequence":
     let empty = newSeq[int]()
     check toSeq(indices(empty)) == empty
     check toSeq(indices(@[9])) == @[0]
     check toSeq(indices(@[3, 4, 5])) == @[0, 1, 2]
-  
+
   test "until":
     var counter: int
-  
+
     counter = 0
     for i in 1.until(5):
       inc counter

@@ -1,5 +1,7 @@
 import os
 
+## Mimicking Python's `sys` module to some extent.
+
 
 # #######
 # Types #

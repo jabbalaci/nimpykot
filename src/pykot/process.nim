@@ -1,6 +1,9 @@
 import osproc
 import strformat
 
+## Working with processes, e.g. launch an external command.
+
+
 # #######
 # Procs #
 # #######

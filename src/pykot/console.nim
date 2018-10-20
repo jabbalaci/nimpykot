@@ -1,5 +1,7 @@
 import rdstdin
 
+## Working with the console, e.g. read a line from the user.
+
 
 # #######
 # Procs #

@@ -2,6 +2,8 @@ import sequtils
 import strutils
 import unicode
 
+## String manipulations.
+
 
 # #######
 # Types #
@@ -63,7 +65,7 @@ func reversedAscii*(s: string): string =
     doAssert "hello".reversedAscii == "olleh"
 
   result = s
-  
+
   var
     i = result.low
     j = result.high
@@ -99,7 +101,7 @@ func lstrip*(s: string, chars: string): string =
   for c in chars:
     bs = bs + {c}
   s.strip(leading=true, trailing=false, chars=bs)
-    
+
 
 func rstrip*(s: string, chars: set[char] = Whitespace): string =
   ## Strips trailing chars from s and returns the resulting string.
