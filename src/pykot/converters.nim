@@ -39,8 +39,8 @@ func toInt*(digit: char): int =
 func toIntPart*(f: float): int =
   ## Convert a float to int and keep just the integer part.
   ##
-  ## Keep just the integer part, do no rounding. Python's int(...) works like this.
-  ## However, `system.toInt(f: float): int` does rounding.
+  ## Keep just the integer part, do no rounding. Python's ``int(...)`` works like this.
+  ## However, ``system.toInt(f: float): int`` does rounding.
   runnableExamples:
     doAssert (3.2).toIntPart == 3
     doAssert (3.8).toIntPart == 3

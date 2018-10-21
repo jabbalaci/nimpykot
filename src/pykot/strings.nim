@@ -37,10 +37,10 @@ const PkString*: JabbaString = (
   # punctuation: "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~",
   whitespace: " \t\n\r\x0b\x0c"
 )
-  ## Mimics Python's `string` module. Since `string` is a built-in type in Nim,
+  ## Mimics Python's ``string`` module. Since ``string`` is a built-in type in Nim,
   ## it was renamed to PkString (PyKot String).
   ##
-  ## Usage example: `PkString.ascii_lowercase`.
+  ## Usage example: ``PkString.ascii_lowercase``.
   ## PkString is a tuple.
 
 
@@ -49,7 +49,7 @@ const PkString*: JabbaString = (
 # #######
 
 func `+`*(s, t: string): string =
-  ## Concatenates s and t into a string.
+  ## Concatenates ``s`` and ``t`` into a string.
   ##
   ## Mimicking Python.
   runnableExamples:
@@ -76,20 +76,20 @@ func reversedAscii*(s: string): string =
     dec j
 
 func lstrip*(s: string, chars: set[char] = Whitespace): string =
-  ## Strips leading chars from s and returns the resulting string.
+  ## Strips leading chars from ``s`` and returns the resulting string.
   ##
-  ## If chars are not specified, leading whitespaces are removed.
-  ## Specify chars as a set of chars (bitset).
+  ## If ``chars`` are not specified, leading whitespaces are removed.
+  ## Specify ``chars`` as a set of chars (bitset).
   runnableExamples:
     doAssert "  ab  ".lstrip() == "ab  "
 
   s.strip(leading=true, trailing=false, chars=chars)
 
 func lstrip*(s: string, chars: string): string =
-  ## Strips leading chars from s and returns the resulting string.
+  ## Strips leading chars from ``s`` and returns the resulting string.
   ##
   ## Specify chars in a string. The string is treated as a set of chars,
-  ## just like Python's lstrip().
+  ## just like Python's ``lstrip()``.
   runnableExamples:
     doAssert "\nab ".lstrip("\n") == "ab "
     doAssert "\t\nab ".lstrip("\n") == "\t\nab "
@@ -104,20 +104,20 @@ func lstrip*(s: string, chars: string): string =
 
 
 func rstrip*(s: string, chars: set[char] = Whitespace): string =
-  ## Strips trailing chars from s and returns the resulting string.
+  ## Strips trailing chars from ``s`` and returns the resulting string.
   ##
-  ## If chars are not specified, trailing whitespaces are removed.
-  ## Specify chars as a set of chars (bitset).
+  ## If ``chars`` are not specified, trailing whitespaces are removed.
+  ## Specify ``chars`` as a set of chars (bitset).
   runnableExamples:
     doAssert "  ab  ".rstrip() == "  ab"
 
   s.strip(leading=false, trailing=true, chars=chars)
 
 func rstrip*(s: string, chars: string): string =
-  ## Strips trailing chars from s and returns the resulting string.
+  ## Strips trailing ``chars`` from ``s`` and returns the resulting string.
   ##
-  ## Specify chars in a string. The string is treated as a set of chars,
-  ## just like Python's rstrip().
+  ## Specify ``chars`` in a string. The string is treated as a set of chars,
+  ## just like Python's ``rstrip()``.
   runnableExamples:
     doAssert "  ab\n".rstrip("\n") == "  ab"
     doAssert "  ab\t\n".rstrip("\n") == "  ab\t"
@@ -146,7 +146,7 @@ func lastAscii*(s: string): char =
   ## The returned value is a char (byte).
   ##
   ## If the last character is a non-ASCII character,
-  ## use the function `lastRune`.
+  ## use the function ``lastRune``.
   runnableExamples:
     let name = "Nim"
     doAssert name.lastAscii == 'm'
@@ -158,7 +158,7 @@ func lastRune*(s: string): Rune =
   ## The returned value is a Rune.
   ##
   ## If the last character is an ASCII character,
-  ## use the function `lastAscii`.
+  ## use the function ``lastAscii``.
   runnableExamples:
     import unicode
     let name = "Alizé"
@@ -167,7 +167,7 @@ func lastRune*(s: string): Rune =
   toSeq(s.runes)[^1]
 
 func lchop*(s, sub: string): string =
-  ## Remove `sub` from the beginning of `s`.
+  ## Remove ``sub`` from the beginning of ``s``.
   runnableExamples:
     let s = "ABcde"
     doAssert s.lchop("AB") == "cde"
@@ -179,7 +179,7 @@ func lchop*(s, sub: string): string =
     s
 
 func rchop*(s, sub: string): string =
-  ## Remove `sub` from the end of `s`.
+  ## Remove ``sub`` from the end of ``s``.
   runnableExamples:
     let fname = "stuff.nim"
     doAssert fname.rchop(".nim") == "stuff"

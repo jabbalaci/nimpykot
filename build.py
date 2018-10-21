@@ -132,13 +132,15 @@ def copy_file(src, dest, create_dir=True):
     print(f"└ end: copy {src} -> {pretty(dest)}")
 
 
-def rename_file(src, dest, overwrite=False):
-    print(f"┌ start: rename {src} -> {dest}")
+def rename_file(src, dest, overwrite=False, verbose=True):
+    if verbose:
+        print(f"┌ start: rename {src} -> {dest}")
     if overwrite:
         if os.path.isfile(dest):
             os.remove(dest)
     shutil.move(src, dest)
-    print(f"└ end: rename {src} -> {dest}")
+    if verbose:
+        print(f"└ end: rename {src} -> {dest}")
 
 
 def enter():
@@ -267,7 +269,7 @@ def doc():
         for f in html_files:
             p = Path(f)
             name = p.name
-            rename_file(f, f"docs/{name}", overwrite=True)
+            rename_file(f, f"docs/{name}", overwrite=True, verbose=False)
 
     if True:
         # delete the docs/htmldocs/ folder

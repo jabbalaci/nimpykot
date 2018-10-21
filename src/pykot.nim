@@ -50,22 +50,19 @@ func last*[T](a: seq[T]): T =
 
 iterator indices*[T](a: seq[T]): int =
   ## An iterator over the indices of a sequence.
-  ##
-  ## .. code-block:: nim
-  ##
-  ##    import
-  ##      sequtils
-  ##
-  ##    let
-  ##      numbers = @[2, 5, 8, 4]
-  ##      res = toSeq(numbers.indices)
-  ##    doAssert res == @[0, 1, 2, 3]
+  runnableExamples:
+    import
+      sequtils
+    let
+      numbers = @[2, 5, 8, 4]
+      res = toSeq(numbers.indices)
+    doAssert res == @[0, 1, 2, 3]
 
   for i in 0 .. a.high:
     yield i
 
 iterator until*(a, b: int): int =
-  ## An iterator that goes from `a` (incl.) until `b` (excl.).
+  ## An iterator that goes from ``a`` (incl.) until ``b`` (excl.).
   ##
   ## I first saw this construction in Kotlin.
   runnableExamples:
@@ -81,9 +78,9 @@ iterator until*(a, b: int): int =
     inc curr
 
 iterator pyRange*(b: int): int =
-  ## An iterator that goes from `0` (incl.) until `b` (excl.).
+  ## An iterator that goes from ``0`` (incl.) until ``b`` (excl.).
   ##
-  ## Mimics Python's `range()`. `system.range` exists, so it had to be renamed.
+  ## Mimics Python's ``range()``. ``system.range`` exists, so it had to be renamed.
   runnableExamples:
     var
       res = newSeq[int]()
@@ -97,11 +94,11 @@ iterator pyRange*(b: int): int =
     inc curr
 
 iterator pyRange*(a, b: int, step: Positive = 1): int =
-  ## An iterator that goes from `a` (incl.) until `b` (excl.).
-  ## `step` is optional and must be >= 1.
+  ## An iterator that goes from ``a`` (incl.) until ``b`` (excl.).
+  ## ``step`` is optional and must be >= 1.
   ##
-  ## Mimics Python's `range()`. `system.range` exists, so it had to be renamed.
-  ## Negative step is not supported. Use `countdown` in that case.
+  ## Mimics Python's ``range()``. ``system.range`` exists, so it had to be renamed.
+  ## Negative step is not supported. Use ``countdown`` in that case.
   runnableExamples:
     var
       res = newSeq[int]()

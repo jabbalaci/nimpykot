@@ -13,7 +13,7 @@ func partition*[T](s: openArray[T], pred: proc(x: T): bool {.closure.}):
   ## The first sequence contains the items that fulfill the predicate.
   ## The second sequence contains the items that do not fulfill the predicate.
   ##
-  ## In the tuple the two sequences are called `t` and `f`, which stand for
+  ## In the tuple the two sequences are called ``t`` and ``f``, which stand for
   ## true and false, respectively, indicating that the predicate is true / false
   ## for the elements of the sequences.
   runnableExamples:
@@ -64,7 +64,7 @@ template partitionIt*[T](s: openArray[T], pred: untyped):
   ## The first sequence contains the items that fulfill the predicate.
   ## The second sequence contains the items that do not fulfill the predicate.
   ##
-  ## In the tuple the two sequences are called `t` and `f`, which stand for
+  ## In the tuple the two sequences are called ``t`` and ``f``, which stand for
   ## true and false, respectively, indicating that the predicate is true / false
   ## for the elements of the sequences.
   runnableExamples:

@@ -1,6 +1,6 @@
 import os
 
-## Mimicking Python's `sys` module to some extent.
+## Mimicking Python's ``sys`` module to some extent.
 
 
 # #######
@@ -24,7 +24,7 @@ proc getArgv(): seq[string] =
 var sys*: JabbaSys = (
   argv: getArgv()
 )
-  ## Mimics Python's `sys.argv`. It contains the file name and the parameters,
+  ## Mimics Python's ``sys.argv``. It contains the file name and the parameters,
   ## just like in C or Python.
   ##
-  ## `sys.argv` can be modified in Python, that's why it's a `var`.
+  ## ``sys.argv`` can be modified in Python, that's why it's a ``var``.
