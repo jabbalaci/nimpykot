@@ -48,18 +48,18 @@ func last*[T](a: seq[T]): T =
 # Iterators #
 # ###########
 
-iterator indices*[T](a: seq[T]): int =
-  ## An iterator over the indices of a sequence.
-  runnableExamples:
-    import
-      sequtils
-    let
-      numbers = @[2, 5, 8, 4]
-      res = toSeq(numbers.indices)
-    doAssert res == @[0, 1, 2, 3]
+# iterator indices*[T](a: seq[T]): int =
+#   ## An iterator over the indices of a sequence.
+#   runnableExamples:
+#     import
+#       sequtils
+#     let
+#       numbers = @[2, 5, 8, 4]
+#       res = toSeq(numbers.indices)
+#     doAssert res == @[0, 1, 2, 3]
 
-  for i in 0 .. a.high:
-    yield i
+#   for i in 0 .. a.high:
+#     yield i
 
 iterator until*(a, b: int): int =
   ## An iterator that goes from ``a`` (incl.) until ``b`` (excl.).

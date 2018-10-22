@@ -18,11 +18,11 @@ suite "pykot":
     let numbers = @[3, 4, 5, 6]
     check numbers.last == 6
 
-  test "indices of a sequence":
-    let empty = newSeq[int]()
-    check toSeq(indices(empty)) == empty
-    check toSeq(indices(@[9])) == @[0]
-    check toSeq(indices(@[3, 4, 5])) == @[0, 1, 2]
+  # test "indices of a sequence":
+  #   let empty = newSeq[int]()
+  #   check toSeq(indices(empty)) == empty
+  #   check toSeq(indices(@[9])) == @[0]
+  #   check toSeq(indices(@[3, 4, 5])) == @[0, 1, 2]
 
   test "until":
     var counter: int
