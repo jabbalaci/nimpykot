@@ -75,6 +75,30 @@ func reversedAscii*(s: string): string =
     inc i
     dec j
 
+func isPalindromeAscii*(s: string): bool =
+  ## Decide if a string is a palindrome or not.
+  ##
+  ## It works with ASCII strings only.
+  runnableExamples:
+    doAssert "abba".isPalindromeAscii == true
+    doAssert "".isPalindromeAscii == true
+    doAssert "abcd".isPalindromeAscii == false
+    doAssert "á..á".isPalindromeAscii == false
+
+  s == reversedAscii(s)
+
+func isPalindrome*(s: string): bool =
+  ## Decide if a string is a palindrome or not.
+  ##
+  ## It works with Unicode strings too.
+  runnableExamples:
+    doAssert "abba".isPalindrome == true
+    doAssert "".isPalindrome == true
+    doAssert "abcd".isPalindrome == false
+    doAssert "á..á".isPalindrome == true
+
+  s == s.reversed
+
 func lstrip*(s: string, chars: set[char] = Whitespace): string =
   ## Strips leading chars from ``s`` and returns the resulting string.
   ##

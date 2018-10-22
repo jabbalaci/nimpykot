@@ -69,3 +69,15 @@ suite "strings":
     let empty = newSeq[int]()
     check toSeq("".indicesAscii()) == empty
     check toSeq("nim".indicesAscii()) == @[0, 1, 2]
+
+  test "isPalindromeAscii":
+    check "abba".isPalindromeAscii == true
+    check "".isPalindromeAscii == true
+    check "abcd".isPalindromeAscii == false
+    check "á..á".isPalindromeAscii == false
+    
+  test "isPalindrome":
+    check "abba".isPalindrome == true
+    check "".isPalindrome == true
+    check "abcd".isPalindrome == false
+    check "á..á".isPalindrome == true
