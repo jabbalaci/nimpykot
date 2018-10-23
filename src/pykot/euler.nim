@@ -24,8 +24,8 @@ func is_prime*(n: Positive): bool =
       return false
 
   var i = 3
-  let maxi = math.sqrt(n.toFloat) + 1
-  while i.toFloat <= maxi:
+  let maxi = math.sqrt(float n) + 1
+  while float(i) <= maxi:
       if n mod i == 0:
           return false
       i += 2
