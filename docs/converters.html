@@ -1199,7 +1199,7 @@ span.pragmawrap {
 
 </style>
 
-<script type="text/javascript" src="dochack.js"></script>
+<script type="text/javascript" src="../dochack.js"></script>
 
 <script type="text/javascript">
 function main() {
@@ -1241,19 +1241,19 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#13" id="63">Funcs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#toInt%2Cint"
+      <li><a class="reference" href="#toInt,int"
     title="toInt(n: int): int"><wbr />to<wbr />Int<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toInt%2Cstring"
+  <li><a class="reference" href="#toInt,string"
     title="toInt(s: string): int"><wbr />to<wbr />Int<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toInt%2Cchar"
+  <li><a class="reference" href="#toInt,char"
     title="toInt(digit: char): int"><wbr />to<wbr />Int<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toIntPart%2Cfloat"
+  <li><a class="reference" href="#toIntPart,float"
     title="toIntPart(f: float): int"><wbr />to<wbr />Int<wbr />Part<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toFloat%2Cfloat"
+  <li><a class="reference" href="#toFloat,float"
     title="toFloat(f: float): float"><wbr />to<wbr />Float<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toFloat%2Cstring"
+  <li><a class="reference" href="#toFloat,string"
     title="toFloat(s: string): float"><wbr />to<wbr />Float<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toFloat%2Cchar"
+  <li><a class="reference" href="#toFloat,char"
     title="toFloat(c: char): float"><wbr />to<wbr />Float<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
@@ -1261,9 +1261,9 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#str.t%2Cuntyped"
+      <li><a class="reference" href="#str.t,untyped"
     title="str(a: untyped): string"><wbr />str<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#toStr.t%2Cuntyped"
+  <li><a class="reference" href="#toStr.t,untyped"
     title="toStr(a: untyped): string"><wbr />to<wbr />Str<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
@@ -1278,8 +1278,7 @@ function main() {
   <div class="section" id="13">
 <h1><a class="toc-backref" href="#13">Funcs</a></h1>
 <dl class="item">
-<a id="toInt,int"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toInt"><a name="toInt,int"></a><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>Convert an int to int.</p>
 <p>It seems useless, but if you don't know the exact type of a variable in a chain and it happens to be an int, it does no harm.</p>
@@ -1289,8 +1288,7 @@ function main() {
 <span class="Identifier">doAssert</span> <span class="DecNumber">123</span><span class="Other">.</span><span class="Identifier">toInt</span> <span class="Operator">==</span> <span class="DecNumber">123</span></pre>
 
 </dd>
-<a id="toInt,string"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OverflowError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toInt"><a name="toInt,string"></a><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OverflowError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Convert a string to int.
 <p><strong class="examples_text">Examples:</strong></p>
@@ -1298,8 +1296,7 @@ Convert a string to int.
 <span class="Identifier">doAssert</span> <span class="StringLit">&quot;-576&quot;</span><span class="Other">.</span><span class="Identifier">toInt</span> <span class="Operator">==</span> <span class="Operator">-</span><span class="DecNumber">576</span></pre>
 
 </dd>
-<a id="toInt,char"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">digit</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OverflowError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toInt"><a name="toInt,char"></a><pre><span class="Keyword">func</span> <span class="Identifier">toInt</span><span class="Other">(</span><span class="Identifier">digit</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">OverflowError</span><span class="Other">,</span> <span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Convert a digit, represented as a char, to int.
 <p><strong class="examples_text">Examples:</strong></p>
@@ -1307,8 +1304,7 @@ Convert a digit, represented as a char, to int.
 <span class="Identifier">doAssert</span> <span class="CharLit">'5'</span><span class="Other">.</span><span class="Identifier">toInt</span> <span class="Operator">==</span> <span class="DecNumber">5</span></pre>
 
 </dd>
-<a id="toIntPart,float"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toIntPart</span><span class="Other">(</span><span class="Identifier">f</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toIntPart"><a name="toIntPart,float"></a><pre><span class="Keyword">func</span> <span class="Identifier">toIntPart</span><span class="Other">(</span><span class="Identifier">f</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>Convert a float to int and keep just the integer part.</p>
 <p>Keep just the integer part, do no rounding. Python's <tt class="docutils literal"><span class="pre">int(...)</span></tt> works like this. However, <tt class="docutils literal"><span class="pre">system.toInt(f: float): int</span></tt> does rounding.</p>
@@ -1320,8 +1316,7 @@ Convert a digit, represented as a char, to int.
 <span class="Identifier">doAssert</span> <span class="Other">(</span><span class="Operator">-</span><span class="FloatNumber">3.8</span><span class="Other">)</span><span class="Other">.</span><span class="Identifier">toIntPart</span> <span class="Operator">==</span> <span class="Operator">-</span><span class="DecNumber">3</span></pre>
 
 </dd>
-<a id="toFloat,float"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">f</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toFloat"><a name="toFloat,float"></a><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">f</span><span class="Other">:</span> <span class="Identifier">float</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>Convert a float to float.</p>
 <p>It seems useless, but if you don't know the exact type of a variable in a chain and it happens to be a float, it does no harm.</p>
@@ -1330,16 +1325,14 @@ Convert a digit, represented as a char, to int.
 <pre class="listing"><span class="Identifier">doAssert</span> <span class="Other">(</span><span class="FloatNumber">3.14</span><span class="Other">)</span><span class="Other">.</span><span class="Identifier">toFloat</span> <span class="Operator">==</span> <span class="FloatNumber">3.14</span></pre>
 
 </dd>
-<a id="toFloat,string"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toFloat"><a name="toFloat,string"></a><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">s</span><span class="Other">:</span> <span class="Identifier">string</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Convert a string to float.
 <p><strong class="examples_text">Examples:</strong></p>
 <pre class="listing"><span class="Identifier">doAssert</span> <span class="StringLit">&quot;3.2&quot;</span><span class="Other">.</span><span class="Identifier">toFloat</span> <span class="Operator">==</span> <span class="FloatNumber">3.2</span></pre>
 
 </dd>
-<a id="toFloat,char"></a>
-<dt><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<dt id="toFloat"><a name="toFloat,char"></a><pre><span class="Keyword">func</span> <span class="Identifier">toFloat</span><span class="Other">(</span><span class="Identifier">c</span><span class="Other">:</span> <span class="Identifier">char</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">float</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Identifier">ValueError</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 Convert a digit, represented as a char, to float.
 <p><strong class="examples_text">Examples:</strong></p>
@@ -1352,22 +1345,24 @@ Convert a digit, represented as a char, to float.
 <div class="section" id="18">
 <h1><a class="toc-backref" href="#18">Templates</a></h1>
 <dl class="item">
-<a id="str.t,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <span class="Identifier">str</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dt id="str"><a name="str.t,untyped"></a><pre><span class="Keyword">template</span> <span class="Identifier">str</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
 Convert something to string.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Identifier">doAssert</span> <span class="Identifier">str</span><span class="Other">(</span><span class="DecNumber">42</span><span class="Other">)</span> <span class="Operator">==</span> <span class="StringLit">&quot;42&quot;</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">str</span><span class="Other">(</span><span class="FloatNumber">3.14</span><span class="Other">)</span> <span class="Operator">==</span> <span class="StringLit">&quot;3.14&quot;</span></pre>
+<pre class="listing"><span class="Identifier">doAssert</span> <span class="Identifier">str</span><span class="Other">(</span><span class="DecNumber">42</span><span class="Other">)</span> <span class="Operator">==</span>
+    <span class="StringLit">&quot;42&quot;</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">str</span><span class="Other">(</span><span class="FloatNumber">3.14</span><span class="Other">)</span> <span class="Operator">==</span>
+    <span class="StringLit">&quot;3.14&quot;</span></pre>
 
 </dd>
-<a id="toStr.t,untyped"></a>
-<dt><pre><span class="Keyword">template</span> <span class="Identifier">toStr</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
+<dt id="toStr"><a name="toStr.t,untyped"></a><pre><span class="Keyword">template</span> <span class="Identifier">toStr</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">string</span></pre></dt>
 <dd>
 Convert something to string.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Identifier">doAssert</span> <span class="DecNumber">42</span><span class="Other">.</span><span class="Identifier">toStr</span> <span class="Operator">==</span> <span class="StringLit">&quot;42&quot;</span>
-<span class="Identifier">doAssert</span> <span class="Other">(</span><span class="FloatNumber">3.14</span><span class="Other">)</span><span class="Other">.</span><span class="Identifier">toStr</span><span class="Other">(</span><span class="Other">)</span> <span class="Operator">==</span> <span class="StringLit">&quot;3.14&quot;</span></pre>
+<pre class="listing"><span class="Identifier">doAssert</span> <span class="DecNumber">42</span><span class="Other">.</span><span class="Identifier">toStr</span> <span class="Operator">==</span>
+    <span class="StringLit">&quot;42&quot;</span>
+<span class="Identifier">doAssert</span> <span class="Other">(</span><span class="FloatNumber">3.14</span><span class="Other">)</span><span class="Other">.</span><span class="Identifier">toStr</span><span class="Other">(</span><span class="Other">)</span> <span class="Operator">==</span>
+    <span class="StringLit">&quot;3.14&quot;</span></pre>
 
 </dd>
 
@@ -1380,7 +1375,7 @@ Convert something to string.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-10-23 09:01:07 UTC</small>
+        <small>Made with Nim. Generated: 2018-11-11 20:46:59 UTC</small>
       </div>
     </div>
   </div>

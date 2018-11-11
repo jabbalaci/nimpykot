@@ -34,3 +34,36 @@ proc which*(fname: string): string =
       return path
   #
   return ""    # not found
+
+
+# ###########
+# Templates #
+# ###########
+
+template withFile*(f: untyped, filename: string, mode: FileMode, body: untyped): typed =
+  ## Open a file similarly to Python's ``with`` block.
+  ##
+  ## Reading a file line by line:
+  ##
+  ## .. code-block:: nim
+  ##
+  ##      withFile(f, "input.txt", fmRead):
+  ##        for line if f.lines:
+  ##          echo line
+  ##
+  ## Writing to a file:
+  ##
+  ## .. code-block:: nim
+  ##
+  ##      withFile(f, "out.txt", fmWrite):
+  ##        f.writeLine("line 1")
+  ##        f.writeLine("line 2")
+  let fn = filename
+  var f: File
+  if open(f, fn, mode):
+    try:
+      body
+    finally:
+      close(f)
+  else:
+    echo "Error: cannot open " & fn
