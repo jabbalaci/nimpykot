@@ -1,6 +1,9 @@
 import os
 
 ## Mimicking Python's ``sys`` module to some extent.
+##
+## To avoid confusion with the ``system`` module from the stdlib,
+## it's called ``jsystem``, which stands for "jabba's system" module.
 
 
 # #######

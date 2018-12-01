@@ -16,7 +16,7 @@
 <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600' rel='stylesheet' type='text/css'/>
 
 <!-- CSS -->
-<title>Module pykot</title>
+<title>pykot</title>
 <style type="text/css" >
 /*
 Stylesheet for use with Docutils/rst2html.
@@ -1199,7 +1199,7 @@ span.pragmawrap {
 
 </style>
 
-<script type="text/javascript" src="../dochack.js"></script>
+<script type="text/javascript" src="dochack.js"></script>
 
 <script type="text/javascript">
 function main() {
@@ -1219,7 +1219,7 @@ function main() {
 <body onload="main()">
 <div class="document" id="documentId">
   <div class="container">
-    <h1 class="title">Module pykot</h1>
+    <h1 class="title">pykot</h1>
     <div class="row">
   <div class="three columns">
   <div id="global-links">
@@ -1241,9 +1241,9 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#13" id="63">Funcs</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#lastIndex,seq[T]"
+      <li><a class="reference" href="#lastIndex%2Cseq%5BT%5D"
     title="lastIndex[T](a: seq[T]): int"><wbr />last<wbr />Index<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#last,seq[T]"
+  <li><a class="reference" href="#last%2Cseq%5BT%5D"
     title="last[T](a: seq[T]): T"><wbr />last<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
@@ -1251,11 +1251,11 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#15" id="65">Iterators</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#until.i,int,int"
+      <li><a class="reference" href="#until.i%2Cint%2Cint"
     title="until(a, b: int): int"><wbr />until<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pyRange.i,int"
+  <li><a class="reference" href="#pyRange.i%2Cint"
     title="pyRange(b: int): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
-  <li><a class="reference" href="#pyRange.i,int,int,Positive"
+  <li><a class="reference" href="#pyRange.i%2Cint%2Cint%2CPositive"
     title="pyRange(a, b: int; step: Positive = 1): int"><wbr />py<wbr />Range<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
@@ -1263,7 +1263,7 @@ function main() {
 <li>
   <a class="reference reference-toplevel" href="#18" id="68">Templates</a>
   <ul class="simple simple-toc-section">
-      <li><a class="reference" href="#loop.t,static[Natural],untyped"
+      <li><a class="reference" href="#loop.t%2Cstatic%5BNatural%5D%2Cuntyped"
     title="loop(times: static[Natural]; body: untyped): untyped"><wbr />loop<span class="attachedType" style="visibility:hidden"></span></a></li>
 
   </ul>
@@ -1278,22 +1278,22 @@ function main() {
   <div class="section" id="13">
 <h1><a class="toc-backref" href="#13">Funcs</a></h1>
 <dl class="item">
-<dt id="lastIndex"><a name="lastIndex,seq[T]"></a><pre><span class="Keyword">func</span> <span class="Identifier">lastIndex</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
+<a id="lastIndex,seq[T]"></a>
+<dt><pre><span class="Keyword">func</span> <span class="Identifier">lastIndex</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span></pre></dt>
 <dd>
 Return the index of the last element of a sequence.
 <p><strong class="examples_text">Examples:</strong></p>
 <pre class="listing"><span class="Keyword">let</span> <span class="Identifier">a</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">8</span><span class="Other">,</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">]</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">a</span><span class="Other">.</span><span class="Identifier">lastIndex</span> <span class="Operator">==</span>
-    <span class="DecNumber">3</span></pre>
+<span class="Identifier">doAssert</span> <span class="Identifier">a</span><span class="Other">.</span><span class="Identifier">lastIndex</span> <span class="Operator">==</span> <span class="DecNumber">3</span></pre>
 
 </dd>
-<dt id="last"><a name="last,seq[T]"></a><pre><span class="Keyword">func</span> <span class="Identifier">last</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span></pre></dt>
+<a id="last,seq[T]"></a>
+<dt><pre><span class="Keyword">func</span> <span class="Identifier">last</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">T</span><span class="Other">]</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">T</span></pre></dt>
 <dd>
 Last element of a sequence.
 <p><strong class="examples_text">Examples:</strong></p>
 <pre class="listing"><span class="Keyword">let</span> <span class="Identifier">numbers</span> <span class="Other">=</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">2</span><span class="Other">,</span> <span class="DecNumber">7</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">,</span> <span class="DecNumber">9</span><span class="Other">]</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">numbers</span><span class="Other">.</span><span class="Identifier">last</span> <span class="Operator">==</span>
-    <span class="DecNumber">9</span></pre>
+<span class="Identifier">doAssert</span> <span class="Identifier">numbers</span><span class="Other">.</span><span class="Identifier">last</span> <span class="Operator">==</span> <span class="DecNumber">9</span></pre>
 
 </dd>
 
@@ -1301,7 +1301,8 @@ Last element of a sequence.
 <div class="section" id="15">
 <h1><a class="toc-backref" href="#15">Iterators</a></h1>
 <dl class="item">
-<dt id="until"><a name="until.i,int,int"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">until</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="until.i,int,int"></a>
+<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">until</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>An iterator that goes from <tt class="docutils literal"><span class="pre">a</span></tt> (incl.) until <tt class="docutils literal"><span class="pre">b</span></tt> (excl.).</p>
 <p>I first saw this construction in Kotlin.</p>
@@ -1313,7 +1314,8 @@ Last element of a sequence.
 <span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">0</span><span class="Other">]</span></pre>
 
 </dd>
-<dt id="pyRange"><a name="pyRange.i,int"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="pyRange.i,int"></a>
+<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>An iterator that goes from <tt class="docutils literal"><span class="pre">0</span></tt> (incl.) until <tt class="docutils literal"><span class="pre">b</span></tt> (excl.).</p>
 <p>Mimics Python's <tt class="docutils literal"><span class="pre">range()</span></tt>. <tt class="docutils literal"><span class="pre">system.range</span></tt> exists, so it had to be renamed.</p>
@@ -1325,7 +1327,8 @@ Last element of a sequence.
 <span class="Identifier">doAssert</span> <span class="Identifier">res</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Other">[</span><span class="DecNumber">0</span><span class="Other">,</span> <span class="DecNumber">1</span><span class="Other">,</span> <span class="DecNumber">2</span><span class="Other">,</span> <span class="DecNumber">3</span><span class="Other">,</span> <span class="DecNumber">4</span><span class="Other">]</span></pre>
 
 </dd>
-<dt id="pyRange"><a name="pyRange.i,int,int,Positive"></a><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">step</span><span class="Other">:</span> <span class="Identifier">Positive</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
+<a id="pyRange.i,int,int,Positive"></a>
+<dt><pre><span class="Keyword">iterator</span> <span class="Identifier">pyRange</span><span class="Other">(</span><span class="Identifier">a</span><span class="Other">,</span> <span class="Identifier">b</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">;</span> <span class="Identifier">step</span><span class="Other">:</span> <span class="Identifier">Positive</span> <span class="Other">=</span> <span class="DecNumber">1</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">int</span> <span><span class="Other">{</span><span class="Other pragmadots">...</span><span class="Other">}</span></span><span class="pragmawrap"><span class="Other">{.</span><span class="pragma"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span><span class="Other">.}</span></span></pre></dt>
 <dd>
 <p>An iterator that goes from <tt class="docutils literal"><span class="pre">a</span></tt> (incl.) until <tt class="docutils literal"><span class="pre">b</span></tt> (excl.). <tt class="docutils literal"><span class="pre">step</span></tt> is optional and must be &gt;= 1.</p>
 <p>Mimics Python's <tt class="docutils literal"><span class="pre">range()</span></tt>. <tt class="docutils literal"><span class="pre">system.range</span></tt> exists, so it had to be renamed. Negative step is not supported. Use <tt class="docutils literal"><span class="pre">countdown</span></tt> in that case.</p>
@@ -1342,15 +1345,15 @@ Last element of a sequence.
 <div class="section" id="18">
 <h1><a class="toc-backref" href="#18">Templates</a></h1>
 <dl class="item">
-<dt id="loop"><a name="loop.t,static[Natural],untyped"></a><pre><span class="Keyword">template</span> <span class="Identifier">loop</span><span class="Other">(</span><span class="Identifier">times</span><span class="Other">:</span> <span class="Identifier">static</span><span class="Other">[</span><span class="Identifier">Natural</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
+<a id="loop.t,static[Natural],untyped"></a>
+<dt><pre><span class="Keyword">template</span> <span class="Identifier">loop</span><span class="Other">(</span><span class="Identifier">times</span><span class="Other">:</span> <span class="Identifier">static</span><span class="Other">[</span><span class="Identifier">Natural</span><span class="Other">]</span><span class="Other">;</span> <span class="Identifier">body</span><span class="Other">:</span> <span class="Identifier">untyped</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">untyped</span></pre></dt>
 <dd>
 Execute the body in a loop N times, i.e. repeat the body N times.
 <p><strong class="examples_text">Examples:</strong></p>
-<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span><span class="DecNumber">166143</span> <span class="Other">=</span> <span class="DecNumber">0</span>
+<pre class="listing"><span class="Keyword">var</span> <span class="Identifier">cnt</span> <span class="Other">=</span> <span class="DecNumber">0</span>
 <span class="Identifier">loop</span><span class="Other">(</span><span class="DecNumber">5</span><span class="Other">)</span><span class="Other">:</span>
-  <span class="Identifier">inc</span> <span class="Identifier">cnt</span><span class="DecNumber">166143</span>
-<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span><span class="DecNumber">166143</span> <span class="Operator">==</span>
-    <span class="DecNumber">5</span></pre>
+  <span class="Identifier">inc</span> <span class="Identifier">cnt</span>
+<span class="Identifier">doAssert</span> <span class="Identifier">cnt</span> <span class="Operator">==</span> <span class="DecNumber">5</span></pre>
 
 </dd>
 
@@ -1363,7 +1366,7 @@ Execute the body in a loop N times, i.e. repeat the body N times.
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br/>
-        <small>Made with Nim. Generated: 2018-11-11 20:46:48 UTC</small>
+        <small>Made with Nim. Generated: 2018-12-01 15:56:37 UTC</small>
       </div>
     </div>
   </div>

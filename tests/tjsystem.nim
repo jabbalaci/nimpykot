@@ -1,6 +1,6 @@
 import unittest
 
-import pykot/system
+import pykot/jsystem
 
 
 # ##########
