@@ -28,7 +28,7 @@ See here: https://jabbalaci.github.io/nimpykot/ .
 Notes
 -----
 
-The project was inspired by <https://github.com/Yardanico/nimpylib>.
+Similar projects: https://github.com/search?q=nimpylib&type=repositories
 
 Sample
 ------
