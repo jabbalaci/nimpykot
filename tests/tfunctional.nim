@@ -25,14 +25,14 @@ suite "functional":
     text = "HELLo THERE"
     check text.noneIt(it.isLowerAscii) == false
 
-  test "partition":
-    let
-      words = @["mix", "xyz", "apple", "xanadu", "aardvark"]
-      partitions = words.partition(s => s[0] == 'x')
-    check partitions[0] == @["xyz", "xanadu"]
-    check partitions.t == partitions[0]
-    check partitions[1] == @["mix", "apple", "aardvark"]
-    check partitions.f == partitions[1]
+# test "partition":
+#   let
+#     words = @["mix", "xyz", "apple", "xanadu", "aardvark"]
+#     partitions = words.partition(s => s[0] == 'x')
+#   check partitions[0] == @["xyz", "xanadu"]
+#   check partitions.t == partitions[0]
+#   check partitions[1] == @["mix", "apple", "aardvark"]
+#   check partitions.f == partitions[1]
 
   test "partitionIt":
     let

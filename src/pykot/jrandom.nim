@@ -14,7 +14,7 @@ proc shuffled*[T](x: seq[T]): seq[T] =
       nums = @[1, 2, 3, 4]
       res = shuffled(nums)
     doAssert (res.len == nums.len) and (nums == @[1, 2, 3, 4])
-    
+
   var copy = x
   copy.shuffle()
   return copy

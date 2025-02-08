@@ -20,16 +20,16 @@ $ pynt
 
 import os
 import shlex
-from glob import glob
 import shutil
 import sys
+import webbrowser
+from glob import glob
 from pathlib import Path
 from subprocess import PIPE, Popen
-import webbrowser
 
 from pynt import task
 
-BROWSER = "firefox"    # used for opening the doc
+BROWSER = "firefox"  # used for opening the doc
 
 
 def get_platform():
@@ -40,6 +40,7 @@ def get_platform():
         return "windows"
     # else
     raise RuntimeError("unknown platform")
+
 
 platform = get_platform()
 
@@ -105,13 +106,13 @@ def pretty(name, force=False):
     If name is a directory, then add a trailing slash to it.
     """
     if name.endswith("/"):
-        return name    # nothing to do
+        return name  # nothing to do
     # else
     if force:
         return f"{name}/"
     # else
     if not os.path.isdir(name):
-        return name    # not a dir. => don't modify it
+        return name  # not a dir. => don't modify it
     # else
     return f"{name}/"
 
@@ -169,7 +170,7 @@ def rchop(s, sub):
     """
     Remove `sub` from the end of `s`.
     """
-    return s[:-len(sub)] if s.endswith(sub) else s
+    return s[: -len(sub)] if s.endswith(sub) else s
 
 
 def _traverse(root, li, skip_links):
@@ -202,6 +203,7 @@ def traverse(root, skip_links=True):
 ## Tasks ##
 ###########
 
+
 @task()
 def _clean_folder(dir_name):
     """
@@ -214,7 +216,7 @@ def _clean_folder(dir_name):
         if os.path.isfile(fname):
             remove_file(fname, verbose=False)
         if os.path.isfile(exe):
-            remove_file(exe, verbose=False)    # Windows support
+            remove_file(exe, verbose=False)  # Windows support
 
 
 @task()
@@ -222,7 +224,7 @@ def tests():
     """
     run tests
     """
-    verbosity_level = 1    # 0, 1, 2, 3, default: 1
+    verbosity_level = 1  # 0, 1, 2, 3, default: 1
     # cmd = f"nim c -r --verbosity:{verbosity_level} tests/test_pykot.nim"
     cmd = "nimble test"
     call_external_command(cmd)
@@ -248,24 +250,26 @@ def doc():
         nim_files = [f for f in traverse("src/") if f.endswith(".nim")]
         for f in nim_files:
             p = Path(f)
-            stem = p.stem    # /path/to/something.nim -> something (just filename without extension)
+            stem = p.stem  # /path/to/something.nim -> something (just filename without extension)
             # cmd = f"nim doc --index:on --docSeeSrcUrl:{URL} -o:docs/htmldocs/{stem}.html {f}"
-            cmd = f"nim doc --index:on -o:docs/htmldocs/{stem}.html {f}"
+            cmd = f"nim doc --project --index:on -o:docs/htmldocs/{stem} {f}"
             call_external_command(cmd)
 
     if True:
         # build theindex.html
-        cmd = "nim buildIndex docs/htmldocs/"
+        cmd = "nim buildIndex -o:docs/theindex.html docs/htmldocs"
         call_external_command(cmd)
 
     if True:
         # copy theindex.html to index.html
         # for github pages it's better if it's called index.html
-        copy_file("docs/theindex.html", "docs/index.html", create_dir=False)
+        copy_file("docs/theindex.html", "docs/htmldocs/index.html", create_dir=False)
+        if os.path.isfile("docs/htmldocs/index.html"):
+            os.remove("docs/theindex.html")
 
     if True:
         # move the .html files
-        html_files = [f for f in traverse("docs/htmldocs/") if f.endswith(".html")]
+        html_files = [f for f in traverse("docs/htmldocs/") if f.endswith((".html", ".css", ".js"))]
         for f in html_files:
             p = Path(f)
             name = p.name
@@ -276,6 +280,10 @@ def doc():
         remove_directory("docs/htmldocs/")
 
     if True:
+        # delete docs/theindex.html
+        os.remove("docs/theindex.html")
+
+    if False:
         print()
         inp = input("Open theindex.html in your browser [y/N]? ").strip()
         if inp == "y":

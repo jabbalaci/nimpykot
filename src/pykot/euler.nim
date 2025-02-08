@@ -16,7 +16,7 @@ func is_prime*(n: Positive): bool =
     doAssert 97.is_prime == true
     doAssert 100.is_prime == false
 
-  if n == 1:
+  if n < 2:
       return false
   if n == 2:
       return true
