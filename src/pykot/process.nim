@@ -1,6 +1,8 @@
 import osproc
 import strformat
 
+import strings
+
 ## Working with processes, e.g. launch an external command.
 
 
@@ -15,6 +17,10 @@ proc execute_command*(cmd: string, debug = true): int =
 
   execCmd(cmd)
 
-proc get_simple_cmd_output*(cmd: string): string =
+proc get_simple_cmd_output*(cmd: string, right_strip: bool = false): string =
   ## Execute a simple external command and return its output.
-  execProcess(cmd)
+  var text = execProcess(cmd)
+  if right_strip:
+    text = text.rstrip()
+  #
+  text

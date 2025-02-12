@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.1"
+version       = "0.2.2"
 author        = "Laszlo Szathmary (Jabba Laci)"
 description   = "Porting some Python / Kotlin features to Nim"
 license       = "MIT"
@@ -8,4 +8,4 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 0.19.0"
+requires "nim >= 2.2.0"

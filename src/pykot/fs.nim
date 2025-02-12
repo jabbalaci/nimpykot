@@ -14,11 +14,11 @@ proc touch*(fname: string): bool =
   ## Return true, if the file exists. Return false, if the empty file was not created.
   ## If the file exists, its date attribute won't be updated, thus it's simpler
   ## than the Unix touch command.
-  if existsFile(fname):
+  if fileExists(fname):
     return true
   # else
   writeFile(fname, "")
-  existsFile(fname)
+  fileExists(fname)
 
 proc which*(fname: string): string =
   ## Find a given file in the PATH and return its full path.
@@ -30,7 +30,7 @@ proc which*(fname: string): string =
 
   for dir in dirs:
     let path = joinPath(dir, fname)
-    if existsFile(path):
+    if fileExists(path):
       return path
   #
   return ""    # not found
@@ -40,7 +40,7 @@ proc which*(fname: string): string =
 # Templates #
 # ###########
 
-template withFile*(f: untyped, filename: string, mode: FileMode, body: untyped): typed =
+template withFile*(f: untyped, filename: string, mode: FileMode, body: untyped) =
   ## Open a file similarly to Python's ``with`` block.
   ##
   ## Reading a file line by line:

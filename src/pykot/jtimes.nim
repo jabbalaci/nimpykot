@@ -25,7 +25,7 @@ proc elapsedTime*(self: Timer): float =
 
 # ###########################################################################
 
-template withTimer*(timer: Timer, body: untyped): typed =
+template withTimer*(timer: Timer, body: untyped) =
   timer.start = epochTime()
   body
   timer.stop = epochTime()

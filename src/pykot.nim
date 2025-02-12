@@ -1,10 +1,10 @@
-import sequtils
+# import sequtils
 
 ## This is the main module of the pykot library.
 ## It started as a port of some Python / Kotlin features.
 ##
 ## | GitHub link: https://github.com/jabbalaci/nimpykot
-## | Author: Laszlo Szathmary (Jabba Laci), 2018 --
+## | Author: Laszlo Szathmary (Jabba Laci), 2018, 2025
 
 
 # #######
