@@ -1,5 +1,6 @@
 import os
 import strutils
+import strformat
 
 ## Working in the file system, e.g. create an empty file.
 
@@ -34,6 +35,17 @@ proc which*(fname: string): string =
       return path
   #
   return ""    # not found
+
+proc check_required_programs*(programs: seq[string], halt: bool = false) =
+  ## Check if the given programs are available in the PATH.
+  ##
+  ## If not found, return an empty string.
+  for prg in programs:
+    let msg = if halt: "Error" else: "Warning"
+    if which(prg) == "":
+      echo &"{msg}: the program '{prg}' was not found"
+      if halt:
+        quit(1)
 
 
 # ###########
