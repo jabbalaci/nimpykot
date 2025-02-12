@@ -1,77 +1,93 @@
 # import strformat
 
-type
-  HANDLE = int
-  HWND = HANDLE
-  UINT = cuint
-  LPCSTR = cstring
-  BOOL = int32
-  SIZE_T = uint
+import pkg/winim/lean
 
-const
-  CF_TEXT = 1
-  GMEM_MOVEABLE = 0x0002
-
-{.push stdcall, dynlib: "user32", importc.}
-proc OpenClipboard(hWndNewOwner: HWND): BOOL
-proc CloseClipboard(): BOOL
-proc GetClipboardData(uFormat: UINT): HANDLE
-proc EmptyClipboard(): BOOL
-proc IsClipboardFormatAvailable(format: UINT): BOOL
-proc SetClipboardData(uFormat: UINT, hMem: HANDLE): HANDLE
-{.pop.}
-
-{.push stdcall, dynlib: "kernel32", importc.}
-proc GlobalLock(hMem: HANDLE): pointer
-proc GlobalUnlock(hMem: HANDLE): BOOL
-proc GlobalAlloc(uFlags: UINT, dwBytes: SIZE_T): HANDLE
-proc GlobalFree(hMem: HANDLE): HANDLE
-proc lstrcpyA(lpString1: pointer, lpString2: LPCSTR): LPCSTR {.importc: "lstrcpyA".}
-{.pop.}
-
-proc getClipboardText*(): string =
-  if OpenClipboard(0) != 0:
-    try:
-      if IsClipboardFormatAvailable(CF_TEXT) != 0:
-        let hData = GetClipboardData(CF_TEXT)
-        if hData != 0:
-          let pszText = cast[cstring](GlobalLock(hData))
-          if pszText != nil:
-            result = $pszText
-            discard GlobalUnlock(hData)
-    finally:
-      discard CloseClipboard()
 
 proc setClipboardText*(text: string): bool =
-  result = false
-  # Add 1 for null terminator
-  let textLen = text.len + 1
-  let hMem = GlobalAlloc(GMEM_MOVEABLE, textLen.SIZE_T)
+  ## Copies the given Unicode text to the clipboard.
+  ## Returns `true` if successful, `false` otherwise.
 
-  if hMem != 0:
-    let pszData = GlobalLock(hMem)
-    if pszData != nil:
-      # Copy the string to the allocated memory
-      discard lstrcpyA(pszData, text.cstring)
-      discard GlobalUnlock(hMem)
+  # Open the clipboard
+  if OpenClipboard(0) == FALSE:
+    return false
 
-      if OpenClipboard(0) != 0:
-        discard EmptyClipboard()
-        if SetClipboardData(CF_TEXT, hMem) != 0:
-          result = true
-        discard CloseClipboard()
+  # Empty the clipboard
+  if EmptyClipboard() == FALSE:
+    CloseClipboard()
+    return false
 
-    # If we failed, free the memory
-    if not result:
-      discard GlobalFree(hMem)
+  # Allocate global memory for the text
+  let textLen = text.len + 1  # Include space for the null terminator
+  let clipbuffer = GlobalAlloc(GHND or GMEM_SHARE, textLen * sizeof(WCHAR))
+  if clipbuffer == 0:  # Compare to 0 instead of nil
+    CloseClipboard()
+    return false
+
+  # Lock the global memory and copy the text into it
+  let szClipboard = cast[ptr WCHAR](GlobalLock(clipbuffer))
+  if szClipboard == nil:
+    GlobalFree(clipbuffer)
+    CloseClipboard()
+    return false
+
+  # Convert the Nim string to a wide string (UTF-16)
+  let wideText = newWideCString(text)
+  let wideTextPtr = cast[pointer](wideText[0].addr)  # Get a pointer to the wide string
+  copyMem(szClipboard, wideTextPtr, textLen * sizeof(WCHAR))
+  discard GlobalUnlock(clipbuffer)
+
+  # Set the clipboard data
+  if SetClipboardData(CF_UNICODETEXT, clipbuffer) == 0:  # Compare to 0 instead of nil
+    GlobalFree(clipbuffer)
+    CloseClipboard()
+    return false
+
+  # Close the clipboard
+  CloseClipboard()
+  return true
+
+
+proc getClipboardText*(): string =
+  ## Reads Unicode text from the clipboard.
+  ## Returns the text as a Nim string, or an empty string if no text is available.
+
+  # Open the clipboard
+  if OpenClipboard(0) == FALSE:
+    return ""
+
+  # Get the clipboard data in CF_UNICODETEXT format
+  let clipData = GetClipboardData(CF_UNICODETEXT)
+  if clipData == 0:  # Compare to 0 instead of nil
+    CloseClipboard()
+    return ""
+
+  # Lock the global memory and get a pointer to the data
+  let szClipboard = cast[ptr WCHAR](GlobalLock(clipData))
+  if szClipboard == nil:
+    CloseClipboard()
+    return ""
+
+  # Convert the wide string (UTF-16) to a Nim string (UTF-8)
+  result = $szClipboard
+
+  # Unlock the global memory
+  discard GlobalUnlock(clipData)
+
+  # Close the clipboard
+  CloseClipboard()
+
 
 # when isMainModule:
-#   # Example of writing to clipboard
-#   let textToWrite = "Hello from Nim! (Windows)"
-#   if setClipboardText(textToWrite):
-#     echo &"Successfully wrote to clipboard: '{textToWrite}'"
+#   # Copy Unicode text to the clipboard
+#   let text = "Hello, 世界! 👍"
+#   if setClipboardText(text):
+#     echo "Text copied to clipboard successfully!"
 #   else:
-#     echo "Failed to write to clipboard"
+#     echo "Failed to copy text to clipboard."
 
-#   # Example of reading from clipboard
-#   echo &"Reading from clipboard: '{getClipboardText()}'"
+#   # Read Unicode text from the clipboard
+#   let clipboardText = getClipboardText()
+#   if clipboardText.len > 0:
+#     echo &"Clipboard content: '{clipboardText}'"
+#   else:
+#     echo "Clipboard is empty or does not contain text."

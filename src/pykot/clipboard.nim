@@ -1,5 +1,3 @@
-import pykot/fs
-
 when defined(windows):
   import pykot/clipboard/windows
   proc getClipboardText*(): string =
@@ -7,6 +5,7 @@ when defined(windows):
   proc setClipboardText*(text: string): bool =
     windows.setClipboardText(text)
 else:  # Linux
+  import pykot/fs
   check_required_programs(@["xsel"], halt=true)
   import pykot/clipboard/linux
   proc getClipboardText*(): string =
