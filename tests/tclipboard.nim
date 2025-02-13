@@ -6,12 +6,21 @@ import pykot/clipboard
 # ##############
 suite "clipboard":
 # ##############
-  test "which":
+  test "read_write":
     let backup = getClipboardText()
     #
-    let text = "hello nim"
-    discard setClipboardText(text)
-    check getClipboardText() == text
+    let text1 = "hello nim"
+    discard setClipboardText(text1)
+    check getClipboardText() == text1
+    #
+    let text2 = "Hello, 世界! 👍"
+    for i in 1..5:
+      discard setClipboardText(text2)
+      check getClipboardText() == text2
+      discard setClipboardText("Laci")
+      check getClipboardText() == "Laci"
+      discard setClipboardText("Éva")
+      check getClipboardText() == "Éva"
     #
     discard setClipboardText("")
     check getClipboardText().len == 0
