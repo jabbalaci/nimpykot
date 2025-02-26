@@ -75,7 +75,7 @@ suite "strings":
     check "".isPalindromeAscii == true
     check "abcd".isPalindromeAscii == false
     check "á..á".isPalindromeAscii == false
-    
+
   test "isPalindrome":
     check "abba".isPalindrome == true
     check "".isPalindrome == true
