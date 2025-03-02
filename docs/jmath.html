@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>pykot/euler</title>
+<title>pykot/jmath</title>
 
 <!-- Google fonts -->
 <link href='https://fonts.googleapis.com/css?family=Lato:400,600,900' rel='stylesheet' type='text/css'/>
@@ -24,7 +24,7 @@
 <body>
   <div class="document" id="documentId">
     <div class="container">
-      <h1 class="title">pykot/euler</h1>
+      <h1 class="title">pykot/jmath</h1>
       <div class="row">
   <div class="three columns">
     <div class="theme-select-wrapper">
@@ -57,6 +57,10 @@
     <ul class="simple simple-toc-section">
       <ul class="simple nested-toc-section">is_prime
   <li><a class="reference" href="#is_prime%2CPositive" title="is_prime(n: Positive): bool">is_prime(n: Positive): bool</a></li>
+
+</ul>
+<ul class="simple nested-toc-section">to_digits
+  <li><a class="reference" href="#to_digits%2Cint" title="to_digits(n: int): seq[int]">to_digits(n: int): seq[int]</a></li>
 
 </ul>
 
@@ -96,6 +100,24 @@
 </div>
 
 </div>
+<div id="to_digits-procs-all">
+  <div id="to_digits,int">
+  <dt><pre><span class="Keyword">func</span> <a href="#to_digits%2Cint"><span class="Identifier">to_digits</span></a><span class="Other">(</span><span class="Identifier">n</span><span class="Other">:</span> <span class="Identifier">int</span><span class="Other">)</span><span class="Other">:</span> <span class="Identifier">seq</span><span class="Other">[</span><span class="Identifier">int</span><span class="Other">]</span> {.<span><span class="Other pragmadots">...</span></span><span class="pragmawrap"><span class="Identifier">raises</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">tags</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span><span class="Other">,</span> <span class="Identifier">forbids</span><span class="Other">:</span> <span class="Other">[</span><span class="Other">]</span></span>.}</pre></dt>
+  <dd>
+    
+    <p>Get the digits of a number.</p>
+<p>For negative numbers, we work with the absolute value. The digits are returned in a reverse order.</p>
+
+<p><strong class="examples_text">Example:</strong></p>
+<pre class="listing"><span class="Identifier">doAssert</span> <span class="FloatNumber">123.</span><span class="Identifier">to_digits</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">3</span><span class="Punctuation">,</span> <span class="DecNumber">2</span><span class="Punctuation">,</span> <span class="DecNumber">1</span><span class="Punctuation">]</span>
+<span class="Identifier">doAssert</span> <span class="FloatNumber">2025.</span><span class="Identifier">to_digits</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">5</span><span class="Punctuation">,</span> <span class="DecNumber">2</span><span class="Punctuation">,</span> <span class="DecNumber">0</span><span class="Punctuation">,</span> <span class="DecNumber">2</span><span class="Punctuation">]</span>
+<span class="Identifier">doAssert</span> <span class="FloatNumber">0.</span><span class="Identifier">to_digits</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">0</span><span class="Punctuation">]</span>
+<span class="Identifier">doAssert</span> <span class="Operator">-</span><span class="FloatNumber">42.</span><span class="Identifier">to_digits</span> <span class="Operator">==</span> <span class="Operator">@</span><span class="Punctuation">[</span><span class="DecNumber">2</span><span class="Punctuation">,</span> <span class="DecNumber">4</span><span class="Punctuation">]</span></pre>
+    
+  </dd>
+</div>
+
+</div>
 
   </dl>
 </div>
@@ -106,7 +128,7 @@
       <div class="twelve-columns footer">
         <span class="nim-sprite"></span>
         <br>
-        <small style="color: var(--hint);">Made with Nim. Generated: 2025-02-12 11:53:18 UTC</small>
+        <small style="color: var(--hint);">Made with Nim. Generated: 2025-03-02 11:46:20 UTC</small>
       </div>
     </div>
   </div>

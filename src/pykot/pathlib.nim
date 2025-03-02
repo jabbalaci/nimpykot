@@ -21,7 +21,7 @@
 ##
 ## Examples:
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create two paths, check if they are equal, and append another directory to the first path.
 ##    var path1 : PythonPath = Path("/home/adam/")
@@ -30,7 +30,7 @@
 ##    path1 = path1 / "nim" / "pythonpathlib"
 ##    echo(path1) # "/home/adam/nim/pythonpathlib"
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path and output the parent directories of the path.
 ##    var path : PythonPath = Path("/home/adam/nim/pythonpathlib/pythonpathlib.nim")
@@ -44,7 +44,7 @@
 ##    # "nim"
 ##    # "pythonpathlib"
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path, get the name and suffix, and then change both.
 ##    var path : PythonPath = Path("code/example.nim")
@@ -55,7 +55,7 @@
 ##    path = path.with_suffix(".py")
 ##    echo(path) # "code/newfile.py"
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path, check whether the path exists, and then see whether it is a file, directory, or symlink.
 ##    var path : PythonPath = Path("/home/adam")
@@ -64,7 +64,7 @@
 ##    echo(path.is_dir()) # true
 ##    echo(path.is_symlink()) # false
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path, rename the path it represents to something else, and then force another rename.
 ##    var path : PythonPath = Path("code/example.nim")
@@ -73,14 +73,14 @@
 ##    path.replace("code/testing.nim")
 ##    # if "code/testing.nim" already existed, if would be overritten by the last method.
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path and get its representation as a file URI.
 ##    var path : PythonPath = Path("/home/adam/nim/code.nim")
 ##    var fileURI : string = path.as_uri()
 ##    echo(fileURI) # "file:///home/adam/nim/code.nim"
 ##
-## .. code-block:: nimrod
+## .. code-block:: nim
 ##
 ##    # Create a path and compute a version of this path relative to another.
 ##    var path : PythonPath = Path("/home/adam/nim/code.nim")
