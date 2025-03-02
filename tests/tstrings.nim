@@ -81,3 +81,10 @@ suite "strings":
     check "".isPalindrome == true
     check "abcd".isPalindrome == false
     check "á..á".isPalindrome == true
+
+  test "* operator":
+    check "-" * 5 == "-----"
+    check '-' * 5 == "-----"
+    check "-" * 0 == ""
+    check '-' * 0 == ""
+    check "ab" * 2 == "abab"
