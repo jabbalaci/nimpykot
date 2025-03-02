@@ -216,19 +216,13 @@ func rchop*(s, sub: string): string =
   else:
     s
 
-func `*`*(c: char, n: int): string =
-  ## Repeat the ``c`` character ``n`` times.
+func `*`*(cs: char | string, n: int): string =
+  ## Repeat the ``cs`` character/string ``n`` times.
   runnableExamples:
     doAssert '-' * 3 == "---"
-
-  c.repeat(n)
-
-func `*`*(s: string, n: int): string =
-  ## Repeat the ``s`` string ``n`` times.
-  runnableExamples:
     doAssert "ab" * 2 == "abab"
 
-  s.repeat(n)
+  cs.repeat(n)
 
 
 # ###########
